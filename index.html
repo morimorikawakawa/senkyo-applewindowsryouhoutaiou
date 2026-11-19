@@ -462,8 +462,11 @@
     gap: 10px;
   }
   .switch-guide-text { font-size: 15px; font-weight: 700; color: #065f46; }
+  .switch-controls-group { display: flex; gap: 8px; flex-wrap: wrap; }
   .btn-toggle-scan { background: #10b981; border: none; color: white; font-weight: 800; font-size: 14px; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
   .btn-toggle-scan.active { background: #dc2626; }
+  .btn-toggle-tts { background: #64748b; border: none; color: white; font-weight: 800; font-size: 14px; padding: 8px 16px; border-radius: 8px; cursor: pointer; transition: 0.15s; }
+  .btn-toggle-tts.active { background: #0284c7; }
 
   .vote-steps-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
   .vote-step-indicator { padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 800; background: #e2e8f0; color: #64748b; }
@@ -530,7 +533,6 @@
   .selected-summary-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #cbd5e1; font-size: 15px; font-weight: 800; }
   .selected-summary-item:last-child { border-bottom: none; }
 
-  /* オンライン本番投票・4分割入力フォーム */
   .real-vote-banner { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 3px solid #10b981; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; }
   .real-vote-banner h2 { font-size: 22px; font-weight: 900; color: #065f46; margin-bottom: 6px; }
   .real-vote-banner p { font-size: 14px; font-weight: 700; color: #047857; }
@@ -1001,8 +1003,11 @@
         </div>
 
         <div class="switch-guide-bar">
-          <div class="switch-guide-text">💡 <strong>スイッチ操作モード:</strong> 「Space」キーか「Enter」キーを1回押すごとに、枠が順番に動いて選択できます。</div>
-          <button class="btn-toggle-scan" id="btnToggleScan" onclick="toggleAutoScan()">▶️ 自動スキャンを開始 (2秒間隔)</button>
+          <div class="switch-guide-text">💡 <strong>スイッチ操作:</strong> 「Space」か「Enter」キーを1回押すごとに枠が動いて選択できます。</div>
+          <div class="switch-controls-group">
+            <button class="btn-toggle-tts" id="btnTogglePracticeTts" onclick="togglePracticeNameTts()">🔇 名前読み上げ：オフ</button>
+            <button class="btn-toggle-scan" id="btnToggleScan" onclick="toggleAutoScan()">▶️ 自動スキャン開始</button>
+          </div>
         </div>
 
         <div class="vote-steps-bar" id="voteStepsBar"></div>
@@ -1057,7 +1062,6 @@
         </p>
       </div>
 
-      <!-- ① 学年・学級・番号・名前の4分割入力 -->
       <div id="realVoteStepAuth" class="sim-stage-box">
         <div class="voter-id-card">
           <div class="voter-id-section-title">① あなたの「学年・学級・番号・名前」を入れてね</div>
@@ -1244,8 +1248,8 @@ let loadedFileName = "";
 let currentAudioPlayer = null;
 let currentPlayingCandId = null;
 let currentZoomCandidateId = null;
+let isPracticeNameTtsEnabled = false; // 投票練習の「名前読み上げ」初期状態はオフ
 
-// 全角英数字を半角へ自動変換する関数
 function toHalfWidth(str) {
   return String(str).replace(/[！-～]/g, function(s) {
     return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
@@ -1261,6 +1265,40 @@ function normalizeHalfWidthInput(el, digitsOnly) {
   }
   if (el.value !== val) {
     el.value = val;
+  }
+}
+
+// クリック時の軽やかな選択効果音（名前を読み上げないとき用）
+function playSelectClickSound() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(660, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.08);
+    gain.gain.setValueAtTime(0.14, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.1);
+  } catch (e) {}
+}
+
+function togglePracticeNameTts() {
+  isPracticeNameTtsEnabled = !isPracticeNameTtsEnabled;
+  const btn = document.getElementById('btnTogglePracticeTts');
+  if (btn) {
+    if (isPracticeNameTtsEnabled) {
+      btn.textContent = "🔊 名前読み上げ：オン";
+      btn.classList.add('active');
+    } else {
+      btn.textContent = "🔇 名前読み上げ：オフ";
+      btn.classList.remove('active');
+      stopAllVoices();
+    }
   }
 }
 
@@ -1614,6 +1652,9 @@ function handleZoomBackdropClick(event) {
   if (event.target.id === 'candidateZoomModal') closeCandidateZoom();
 }
 
+// =========================================================================
+// 4. オンラインとうひょう（本番）：名前の読み上げは完全停止（効果音のみ）
+// =========================================================================
 let realVoteStepIndex = 0;
 let realUserSelections = {};
 let realVoterId = "";
@@ -1636,7 +1677,6 @@ function startRealVoteSelection() {
   const numEl = document.getElementById('realVoterNumber');
   const nameEl = document.getElementById('realVoterName');
 
-  // 念のため確定前にも半角変換を適用
   normalizeHalfWidthInput(gradeEl, true);
   normalizeHalfWidthInput(classEl, false);
   normalizeHalfWidthInput(numEl, true);
@@ -1725,13 +1765,8 @@ function toggleRealVoteCandidate(id, idx) {
     }
   }
   updateRealNextButtonState();
-  const c = CANDIDATES.find(item => item.id === id);
-  if (c) {
-    stopAllVoices();
-    const utter = new SpeechSynthesisUtterance(`${c.name} さん`);
-    utter.lang = 'ja-JP';
-    window.speechSynthesis.speak(utter);
-  }
+  // 本番投票では秘密選挙のため名前の読み上げを行わず、選択効果音のみ鳴らす
+  playSelectClickSound();
 }
 
 function updateRealNextButtonState() {
@@ -2206,6 +2241,9 @@ function renderCandidates() {
   });
 }
 
+// =========================================================================
+// 3. とうひょう れんしゅう（名前読み上げ：オフ / オン 切替対応）
+// =========================================================================
 let simCurrentPhase = 'reception';
 let isTicketExchanged = false;
 
@@ -2361,12 +2399,17 @@ function toggleVoteCandidate(id, idx) {
     }
   }
   updateNextButtonState();
+
   const c = CANDIDATES.find(item => item.id === id);
   if (c) {
-    stopAllVoices();
-    const utter = new SpeechSynthesisUtterance(`${c.name} さん`);
-    utter.lang = 'ja-JP';
-    window.speechSynthesis.speak(utter);
+    if (isPracticeNameTtsEnabled) {
+      stopAllVoices();
+      const utter = new SpeechSynthesisUtterance(`${c.name} さん`);
+      utter.lang = 'ja-JP';
+      window.speechSynthesis.speak(utter);
+    } else {
+      playSelectClickSound();
+    }
   }
 }
 
@@ -2513,7 +2556,7 @@ function stopAutoScan() {
   isAutoScanning = false;
   if (scanTimer) clearInterval(scanTimer);
   const btn = document.getElementById('btnToggleScan');
-  if (btn) { btn.textContent = "▶️ 自動スキャンを開始 (2秒間隔)"; btn.classList.remove('active'); }
+  if (btn) { btn.textContent = "▶️ 自動スキャン開始"; btn.classList.remove('active'); }
   document.querySelectorAll('.vote-card').forEach(c => c.classList.remove('scanning-focus'));
 }
 
@@ -2528,7 +2571,16 @@ function stepScan() {
   const stepInfo = VOTE_STEPS[currentVoteStepIndex];
   const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
   const c = currentCandidates[scanIndex];
-  if (c) { stopAllVoices(); const utter = new SpeechSynthesisUtterance(c.name); utter.lang = 'ja-JP'; window.speechSynthesis.speak(utter); }
+  if (c) {
+    if (isPracticeNameTtsEnabled) {
+      stopAllVoices();
+      const utter = new SpeechSynthesisUtterance(c.name);
+      utter.lang = 'ja-JP';
+      window.speechSynthesis.speak(utter);
+    } else {
+      playSelectClickSound();
+    }
+  }
 }
 
 window.addEventListener('keydown', (e) => {
