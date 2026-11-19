@@ -530,24 +530,39 @@
   .selected-summary-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #cbd5e1; font-size: 15px; font-weight: 800; }
   .selected-summary-item:last-child { border-bottom: none; }
 
+  /* オンライン本番投票・4分割入力フォーム */
   .real-vote-banner { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 3px solid #10b981; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; }
   .real-vote-banner h2 { font-size: 22px; font-weight: 900; color: #065f46; margin-bottom: 6px; }
   .real-vote-banner p { font-size: 14px; font-weight: 700; color: #047857; }
-  .voter-id-card { background: #ffffff; border: 3px solid #34d399; border-radius: 16px; padding: 20px; max-width: 560px; margin: 0 auto 20px; text-align: left; }
-  .voter-id-card label { display: block; font-size: 16px; font-weight: 900; color: #065f46; margin-bottom: 6px; }
+  .voter-id-card { background: #ffffff; border: 3px solid #34d399; border-radius: 16px; padding: 20px; max-width: 600px; margin: 0 auto 20px; text-align: left; }
+  .voter-id-section-title { font-size: 16px; font-weight: 900; color: #065f46; margin-bottom: 12px; }
+  .voter-split-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 540px) {
+    .voter-split-grid { grid-template-columns: 1fr; }
+  }
+  .voter-field-item { display: flex; flex-direction: column; gap: 4px; }
+  .voter-field-item label { font-size: 14px; font-weight: 800; color: #065f46; }
+  .voter-input-row { display: flex; align-items: center; gap: 6px; }
   .voter-id-input {
     width: 100%;
-    padding: 12px 14px;
+    padding: 10px 12px;
     font-size: 18px;
     font-weight: 800;
     border: 3px solid #6ee7b7;
     border-radius: 12px;
     background: #f0fdf4;
     color: #0f172a;
-    margin-bottom: 8px;
     user-select: text;
   }
+  .voter-id-input.num-input { text-align: center; }
   .voter-id-input:focus { outline: none; border-color: #059669; background: white; }
+  .voter-unit-label { font-size: 16px; font-weight: 900; color: #065f46; flex-shrink: 0; }
+
   .receipt-code-box {
     background: #0f172a;
     color: #4ade80;
@@ -834,7 +849,6 @@
     </h1>
     <div class="title-sub">じぶんの いけんを えらんで とうひょうしてみよう！</div>
   </div>
-  <!-- ご指定の並び順：候補者 → 投票の流れ → 投票練習 → オンライン投票（本番） → 編集・開票 -->
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="switchTab('candidates')">👤 こうほしゃ</button>
     <button class="tab-btn" onclick="switchTab('guide')">📖 とうひょうの ながれ</button>
@@ -1043,12 +1057,44 @@
         </p>
       </div>
 
+      <!-- ① 学年・学級・番号・名前の4分割入力 -->
       <div id="realVoteStepAuth" class="sim-stage-box">
         <div class="voter-id-card">
-          <label for="realVoterIdInput">① あなたの「クラス・しゅっせきばんごう（または 名前）」を入れてね</label>
-          <input type="text" id="realVoterIdInput" class="voter-id-input" placeholder="例：2年1組 15番 やまだ たろう">
+          <div class="voter-id-section-title">① あなたの「学年・学級・番号・名前」を入れてね</div>
+
+          <div class="voter-split-grid">
+            <div class="voter-field-item">
+              <label for="realVoterGrade">学年（数字）</label>
+              <div class="voter-input-row">
+                <input type="text" id="realVoterGrade" class="voter-id-input num-input" inputmode="numeric" placeholder="例: 2" oninput="normalizeHalfWidthInput(this, true)">
+                <span class="voter-unit-label">年</span>
+              </div>
+            </div>
+
+            <div class="voter-field-item">
+              <label for="realVoterClass">学級（組）</label>
+              <div class="voter-input-row">
+                <input type="text" id="realVoterClass" class="voter-id-input num-input" placeholder="例: 1" oninput="normalizeHalfWidthInput(this, false)">
+                <span class="voter-unit-label">組</span>
+              </div>
+            </div>
+
+            <div class="voter-field-item">
+              <label for="realVoterNumber">出席番号（数字）</label>
+              <div class="voter-input-row">
+                <input type="text" id="realVoterNumber" class="voter-id-input num-input" inputmode="numeric" placeholder="例: 15" oninput="normalizeHalfWidthInput(this, true)">
+                <span class="voter-unit-label">番</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="voter-field-item" style="margin-bottom: 10px;">
+            <label for="realVoterName">名前（なまえ）</label>
+            <input type="text" id="realVoterName" class="voter-id-input" placeholder="例：やまだ たろう">
+          </div>
+
           <div style="font-size: 13px; color: #047857; font-weight: 700;">
-            ※ 1人1回の とうひょうを かくにんするために 使います（だれに とうひょうしたかは 暗号化されて 秘密が 守られます）。
+            ※ 数字は全角で入力しても自動で半角になります。1人1回の とうひょうを かくにんするために 使います（だれに とうひょうしたかは 暗号化されて 秘密が 守られます）。
           </div>
         </div>
         <button class="btn-next-step" style="background: #059669; border-color: #047857;" onclick="startRealVoteSelection()">✏️ とうひょう ようし に すすむ</button>
@@ -1111,7 +1157,7 @@
         </h3>
         <p style="font-size: 13px; color: #047857;">
           ロイロノートやClassroom等で生徒から届いた「投票コード（<code>VOTE-...</code>）」を下の枠にまとめて貼り付けて「開票・集計する」を押してください。<br>
-          ※ 同じ生徒（出席番号・名前）から複数回送られた場合は、<strong>最初の1票のみを有効とし、2回目以降は自動で重複除外</strong>します。
+          ※ 同じ生徒（学年・学級・番号・名前）から複数回送られた場合は、<strong>最初の1票のみを有効とし、2回目以降は自動で重複除外</strong>します。
         </p>
         <textarea id="tallyInputTextarea" class="tally-textarea" rows="4" placeholder="ここに生徒から届いた VOTE-... で始まるコードを貼り付けてください（複数人分を改行やスペース区切りでまとめて貼り付けできます）"></textarea>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -1198,6 +1244,25 @@ let loadedFileName = "";
 let currentAudioPlayer = null;
 let currentPlayingCandId = null;
 let currentZoomCandidateId = null;
+
+// 全角英数字を半角へ自動変換する関数
+function toHalfWidth(str) {
+  return String(str).replace(/[！-～]/g, function(s) {
+    return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+  }).replace(/ /g, ' ');
+}
+
+function normalizeHalfWidthInput(el, digitsOnly) {
+  let val = toHalfWidth(el.value);
+  if (digitsOnly) {
+    val = val.replace(/[^0-9]/g, '');
+  } else {
+    val = val.trim();
+  }
+  if (el.value !== val) {
+    el.value = val;
+  }
+}
 
 function getSceneImageSrc(key) {
   if (SCENE_PHOTOS[key]) return SCENE_PHOTOS[key];
@@ -1461,7 +1526,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   renderAdminPanel();
 });
 
-// タブ切り替え（ボタンの並び順：0=候補者, 1=投票の流れ, 2=投票練習, 3=オンライン投票, 4=編集・開票）
 function switchTab(tabKey) {
   document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -1567,10 +1631,27 @@ function initRealVote() {
 }
 
 function startRealVoteSelection() {
-  const input = document.getElementById('realVoterIdInput');
-  const val = input.value.trim();
-  if (!val) { alert("あなたの「クラス・しゅっせきばんごう（または 名前）」を入力してください。"); input.focus(); return; }
-  realVoterId = val;
+  const gradeEl = document.getElementById('realVoterGrade');
+  const classEl = document.getElementById('realVoterClass');
+  const numEl = document.getElementById('realVoterNumber');
+  const nameEl = document.getElementById('realVoterName');
+
+  // 念のため確定前にも半角変換を適用
+  normalizeHalfWidthInput(gradeEl, true);
+  normalizeHalfWidthInput(classEl, false);
+  normalizeHalfWidthInput(numEl, true);
+
+  const gradeVal = gradeEl.value.trim();
+  const classVal = classEl.value.trim();
+  const numVal = numEl.value.trim();
+  const nameVal = nameEl.value.trim();
+
+  if (!gradeVal) { alert("「学年」を入力してください。"); gradeEl.focus(); return; }
+  if (!classVal) { alert("「学級（組）」を入力してください。"); classEl.focus(); return; }
+  if (!numVal) { alert("「出席番号」を入力してください。"); numEl.focus(); return; }
+  if (!nameVal) { alert("「名前」を入力してください。"); nameEl.focus(); return; }
+
+  realVoterId = `${gradeVal}年${classVal}組 ${numVal}番 ${nameVal}`;
   realVoteStepIndex = 0;
   realUserSelections = {};
   while (realVoteStepIndex < VOTE_STEPS.length && CANDIDATES.filter(c => c.role === VOTE_STEPS[realVoteStepIndex].role).length === 0) {
@@ -1773,7 +1854,7 @@ function tallyOnlineVotes() {
       const decodedJson = base64ToUtf8(base64Part);
       const data = JSON.parse(decodedJson);
       if (!data || !data.voter || !Array.isArray(data.votes)) { invalidCount++; return; }
-      const normalizedVoter = String(data.voter).replace(/[\s ]+/g, '').toLowerCase();
+      const normalizedVoter = toHalfWidth(String(data.voter)).replace(/[\s ]+/g, '').toLowerCase();
       if (seenVoters.has(normalizedVoter)) { duplicateVoters.push(data.voter); return; }
       seenVoters.add(normalizedVoter);
       validVoterList.push(data.voter);
