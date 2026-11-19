@@ -17,7 +17,6 @@
     user-select: none;
   }
 
-  /* 紙吹雪用キャンバス */
   #confettiCanvas {
     position: fixed;
     top: 0;
@@ -28,7 +27,6 @@
     z-index: 10000;
   }
 
-  /* ヘッダー */
   header {
     background: #0f172a;
     color: white;
@@ -46,24 +44,16 @@
     color: #facc15;
     letter-spacing: 1px;
   }
-  .title-sub {
-    font-size: 14px;
-    color: #94a3b8;
-  }
+  .title-sub { font-size: 14px; color: #94a3b8; }
 
-  /* ナビゲーションタブ */
-  .nav-tabs {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .nav-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
   .tab-btn {
     background: #1e293b;
     border: 2px solid #475569;
     color: #e2e8f0;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 10px 18px;
+    padding: 10px 15px;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.15s;
@@ -74,6 +64,17 @@
     border-color: #38bdf8;
     color: white;
     box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  }
+  .tab-btn.real-vote-tab {
+    background: #064e3b;
+    border-color: #10b981;
+    color: #ecfdf5;
+  }
+  .tab-btn.real-vote-tab.active {
+    background: #059669;
+    border-color: #34d399;
+    color: white;
+    box-shadow: 0 0 12px rgba(52, 211, 153, 0.45);
   }
   .tab-btn.admin-tab {
     background: #334155;
@@ -86,17 +87,10 @@
     box-shadow: 0 0 12px rgba(167, 139, 250, 0.4);
   }
 
-  /* メインエリア */
-  main {
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 0 16px;
-  }
-
+  main { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
   .view-section { display: none; }
   .view-section.active { display: block; }
 
-  /* 共通カード */
   .card {
     background: white;
     border-radius: 18px;
@@ -106,7 +100,6 @@
     margin-bottom: 20px;
   }
 
-  /* データ読み込みバー（生徒・先生共通） */
   .data-loader-bar {
     background: #eff6ff;
     border: 2px solid #93c5fd;
@@ -128,22 +121,9 @@
     font-weight: 800;
     color: #1e3a8a;
   }
-  .data-badge {
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 800;
-  }
-  .data-badge.sample {
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fcd34d;
-  }
-  .data-badge.loaded {
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #86efac;
-  }
+  .data-badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 800; }
+  .data-badge.sample { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+  .data-badge.loaded { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
   .btn-load-data {
     background: #0284c7;
     border: 2px solid #0369a1;
@@ -159,12 +139,8 @@
     box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
     transition: 0.15s;
   }
-  .btn-load-data:hover {
-    background: #0369a1;
-    transform: translateY(-1px);
-  }
+  .btn-load-data:hover { background: #0369a1; transform: translateY(-1px); }
 
-  /* 役職フィルターボタン */
   .filter-bar {
     display: flex;
     align-items: center;
@@ -176,12 +152,7 @@
     border-radius: 12px;
     border: 2px solid #e2e8f0;
   }
-  .filter-label {
-    font-size: 14px;
-    font-weight: 800;
-    color: #475569;
-    margin-right: 4px;
-  }
+  .filter-label { font-size: 14px; font-weight: 800; color: #475569; margin-right: 4px; }
   .filter-btn {
     background: white;
     border: 2px solid #cbd5e1;
@@ -194,15 +165,8 @@
     transition: 0.15s;
   }
   .filter-btn:hover { background: #e2e8f0; }
-  .filter-btn.active {
-    background: #0284c7;
-    border-color: #0284c7;
-    color: white;
-  }
+  .filter-btn.active { background: #0284c7; border-color: #0284c7; color: white; }
 
-  /* =========================================
-     1. こうほしゃ しょうかい (クリックで拡大対応)
-     ========================================= */
   .candidate-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -221,11 +185,7 @@
     cursor: pointer;
     transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
   }
-  .candidate-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
-    background: #f8fafc;
-  }
+  .candidate-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0,0,0,0.12); background: #f8fafc; }
   .zoom-hint-badge {
     position: absolute;
     top: 10px;
@@ -238,23 +198,8 @@
     padding: 2px 8px;
     border-radius: 12px;
   }
-
-  .candidate-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 125px;
-    flex-shrink: 0;
-  }
-
-  .candidate-right {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    height: 100%;
-    padding-top: 14px;
-  }
-
+  .candidate-left { display: flex; flex-direction: column; align-items: center; width: 125px; flex-shrink: 0; }
+  .candidate-right { display: flex; flex-direction: column; flex-grow: 1; height: 100%; padding-top: 14px; }
   .candidate-photo-frame {
     width: 88px;
     height: 88px;
@@ -269,40 +214,11 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     flex-shrink: 0;
   }
-  .candidate-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .candidate-photo-frame .fallback-symbol {
-    font-size: 44px;
-    line-height: 1;
-  }
-
-  .candidate-class {
-    font-size: 13px;
-    font-weight: 800;
-    color: #475569;
-    margin-bottom: 2px;
-  }
-
-  .candidate-name {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 6px;
-    color: #0f172a;
-    line-height: 1.2;
-    text-align: center;
-  }
-  .candidate-tag {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    color: white;
-  }
+  .candidate-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .candidate-photo-frame .fallback-symbol { font-size: 44px; line-height: 1; }
+  .candidate-class { font-size: 13px; font-weight: 800; color: #475569; margin-bottom: 2px; }
+  .candidate-name { font-size: 18px; font-weight: 800; margin-bottom: 6px; color: #0f172a; line-height: 1.2; text-align: center; }
+  .candidate-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; color: white; }
   .manifesto-box {
     background: #f8fafc;
     border: 2px dashed #cbd5e1;
@@ -336,20 +252,9 @@
   }
   .btn-speech:hover { background: #fde047; }
   .btn-speech:active { transform: scale(0.97); }
-  .btn-speech.has-recorded-voice {
-    background: #fef08a;
-    border-color: #f59e0b;
-    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25);
-  }
-  .btn-speech.playing-voice {
-    background: #ef4444;
-    border-color: #dc2626;
-    color: white;
-  }
+  .btn-speech.has-recorded-voice { background: #fef08a; border-color: #f59e0b; box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25); }
+  .btn-speech.playing-voice { background: #ef4444; border-color: #dc2626; color: white; }
 
-  /* =========================================
-     🔍 候補者 拡大表示モーダル
-     ========================================= */
   .zoom-modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -361,9 +266,7 @@
     padding: 16px;
     backdrop-filter: blur(3px);
   }
-  .zoom-modal-overlay.active {
-    display: flex;
-  }
+  .zoom-modal-overlay.active { display: flex; }
   @keyframes zoomModalIn {
     0% { opacity: 0; transform: scale(0.88) translateY(16px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
@@ -395,17 +298,8 @@
     cursor: pointer;
     transition: 0.15s;
   }
-  .btn-close-zoom:hover {
-    background: #e2e8f0;
-    color: #0f172a;
-  }
-  .zoom-header-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  .btn-close-zoom:hover { background: #e2e8f0; color: #0f172a; }
+  .zoom-header-profile { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; }
   .zoom-photo-frame {
     width: 170px;
     height: 170px;
@@ -419,42 +313,12 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     margin-bottom: 14px;
   }
-  .zoom-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .zoom-photo-frame .fallback-symbol {
-    font-size: 86px;
-    line-height: 1;
-  }
-  .zoom-class-role {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-  }
-  .zoom-class-text {
-    font-size: 20px;
-    font-weight: 800;
-    color: #475569;
-  }
-  .zoom-role-badge {
-    padding: 5px 16px;
-    border-radius: 24px;
-    font-size: 17px;
-    font-weight: 800;
-    color: white;
-  }
-  .zoom-name-text {
-    font-size: 34px;
-    font-weight: 900;
-    color: #0f172a;
-    line-height: 1.25;
-  }
+  .zoom-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .zoom-photo-frame .fallback-symbol { font-size: 86px; line-height: 1; }
+  .zoom-class-role { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .zoom-class-text { font-size: 20px; font-weight: 800; color: #475569; }
+  .zoom-role-badge { padding: 5px 16px; border-radius: 24px; font-size: 17px; font-weight: 800; color: white; }
+  .zoom-name-text { font-size: 34px; font-weight: 900; color: #0f172a; line-height: 1.25; }
   .zoom-manifesto-box {
     background: #f8fafc;
     border: 3px dashed #94a3b8;
@@ -467,20 +331,8 @@
     margin-bottom: 20px;
     text-align: center;
   }
-  .zoom-speech-btn {
-    font-size: 21px;
-    padding: 14px 20px;
-    border-radius: 16px;
-    margin-bottom: 18px;
-  }
-  .zoom-nav-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    border-top: 2px solid #e2e8f0;
-    padding-top: 16px;
-  }
+  .zoom-speech-btn { font-size: 21px; padding: 14px 20px; border-radius: 16px; margin-bottom: 18px; }
+  .zoom-nav-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 2px solid #e2e8f0; padding-top: 16px; }
   .btn-zoom-nav {
     background: #e0f2fe;
     border: 2px solid #38bdf8;
@@ -493,15 +345,110 @@
     transition: 0.15s;
   }
   .btn-zoom-nav:hover { background: #bae6fd; }
-  .zoom-counter {
-    font-size: 15px;
-    font-weight: 800;
+  .zoom-counter { font-size: 15px; font-weight: 800; color: #64748b; }
+
+  .sim-phase-stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 16px;
+    border: 2px solid #cbd5e1;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  .sim-phase-item {
+    flex: 1;
+    min-width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px 6px;
+    border-radius: 12px;
+    background: white;
+    border: 2px solid #cbd5e1;
     color: #64748b;
+    font-size: 13px;
+    font-weight: 800;
+    transition: 0.2s;
+  }
+  .sim-phase-item.active { background: #0284c7; border-color: #0369a1; color: white; transform: scale(1.03); box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); }
+  .sim-phase-item.done { background: #dcfce7; border-color: #22c55e; color: #15803d; }
+  .sim-phase-icon { font-size: 22px; margin-bottom: 2px; }
+
+  .sim-stage-box {
+    background: #f8fafc;
+    border: 3px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    animation: popInCard 0.35s ease forwards;
+  }
+  .sim-scene-visual {
+    max-width: 560px;
+    margin: 0 auto 18px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 4px solid #38bdf8;
+    background: #e0f2fe;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
+  }
+  .sim-scene-visual img { width: 100%; max-height: 300px; object-fit: cover; display: block; }
+  .sim-svg-scene {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f2fe 0%, #fef9c3 100%);
   }
 
-  /* =========================================
-     2. とうひょう れんしゅう (模擬投票)
-     ========================================= */
+  .booth-scene-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #f0f9ff;
+    border: 3px solid #7dd3fc;
+    border-radius: 16px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .booth-scene-thumb {
+    width: 180px;
+    height: 102px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #0284c7;
+    background: #e0f2fe;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+  }
+  .booth-scene-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .booth-scene-text { flex: 1; min-width: 220px; }
+  .booth-scene-text h3 { font-size: 17px; font-weight: 900; color: #0369a1; margin-bottom: 2px; }
+  .booth-scene-text p { font-size: 14px; font-weight: 700; color: #334155; }
+
+  .sim-instruction-title { font-size: 24px; font-weight: 900; color: #0f172a; margin-bottom: 8px; }
+  .sim-instruction-desc { font-size: 16px; font-weight: 700; color: #475569; margin-bottom: 20px; }
+
+  .reception-exchange-area { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 22px; }
+  .ticket-card {
+    background: #fef08a;
+    border: 3px solid #eab308;
+    border-radius: 14px;
+    padding: 16px 24px;
+    box-shadow: 0 6px 14px rgba(234, 179, 8, 0.25);
+    transition: all 0.4s ease;
+  }
+  .ticket-card.exchanged { background: #ffffff; border-color: #0284c7; box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3); transform: scale(1.06); }
+
   .switch-guide-bar {
     background: #ecfdf5;
     border: 2px solid #10b981;
@@ -514,55 +461,16 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-  .switch-guide-text {
-    font-size: 15px;
-    font-weight: 700;
-    color: #065f46;
-  }
-  .btn-toggle-scan {
-    background: #10b981;
-    border: none;
-    color: white;
-    font-weight: 800;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .btn-toggle-scan.active {
-    background: #dc2626;
-  }
+  .switch-guide-text { font-size: 15px; font-weight: 700; color: #065f46; }
+  .btn-toggle-scan { background: #10b981; border: none; color: white; font-weight: 800; font-size: 14px; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
+  .btn-toggle-scan.active { background: #dc2626; }
 
-  .vote-steps-bar {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-  .vote-step-indicator {
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 800;
-    background: #e2e8f0;
-    color: #64748b;
-  }
-  .vote-step-indicator.active {
-    background: #0284c7;
-    color: white;
-  }
-  .vote-step-indicator.done {
-    background: #10b981;
-    color: white;
-  }
+  .vote-steps-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .vote-step-indicator { padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 800; background: #e2e8f0; color: #64748b; }
+  .vote-step-indicator.active { background: #0284c7; color: white; }
+  .vote-step-indicator.done { background: #10b981; color: white; }
 
-  .vote-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 14px;
-    margin-bottom: 24px;
-  }
+  .vote-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px; }
   .vote-card {
     background: white;
     border: 4px solid #cbd5e1;
@@ -575,10 +483,7 @@
     cursor: pointer;
     transition: 0.15s;
   }
-  .vote-card:hover {
-    border-color: #38bdf8;
-    background: #f0f9ff;
-  }
+  .vote-card:hover { border-color: #38bdf8; background: #f0f9ff; }
   .vote-photo-frame {
     width: 75px;
     height: 75px;
@@ -591,27 +496,10 @@
     align-items: center;
     justify-content: center;
   }
-  .vote-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .vote-photo-frame .fallback-symbol {
-    font-size: 40px;
-    line-height: 1;
-  }
-
-  .vote-card.scanning-focus {
-    border-color: #ef4444 !important;
-    background: #fef2f2 !important;
-    box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.4);
-    transform: scale(1.04);
-  }
-  .vote-card.selected {
-    border-color: #0284c7;
-    background: #e0f2fe;
-    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.3);
-  }
+  .vote-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .vote-photo-frame .fallback-symbol { font-size: 40px; line-height: 1; }
+  .vote-card.scanning-focus { border-color: #ef4444 !important; background: #fef2f2 !important; box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.4); transform: scale(1.04); }
+  .vote-card.selected { border-color: #0284c7; background: #e0f2fe; box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.3); }
 
   .vote-action-area {
     display: flex;
@@ -635,31 +523,65 @@
     box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
     transition: 0.15s;
   }
-  .btn-next-step:hover { background: #0369a1; }
-  .btn-next-step:disabled {
-    background: #94a3b8;
-    border-color: #64748b;
-    box-shadow: none;
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
+  .btn-next-step:hover { background: #0369a1; transform: translateY(-2px); }
+  .btn-next-step:disabled { background: #94a3b8; border-color: #64748b; box-shadow: none; cursor: not-allowed; opacity: 0.6; transform: none; }
 
-  /* =========================================
-     3. とうひょうの ながれ (ギミック搭載ガイド)
-     ========================================= */
-  .guide-header-bar {
-    display: flex;
-    justify-content: space-between;
+  .selected-summary-box { background: white; border: 2px solid #93c5fd; border-radius: 14px; padding: 14px 18px; max-width: 560px; margin: 0 auto 18px; text-align: left; }
+  .selected-summary-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #cbd5e1; font-size: 15px; font-weight: 800; }
+  .selected-summary-item:last-child { border-bottom: none; }
+
+  .real-vote-banner { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 3px solid #10b981; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; }
+  .real-vote-banner h2 { font-size: 22px; font-weight: 900; color: #065f46; margin-bottom: 6px; }
+  .real-vote-banner p { font-size: 14px; font-weight: 700; color: #047857; }
+  .voter-id-card { background: #ffffff; border: 3px solid #34d399; border-radius: 16px; padding: 20px; max-width: 560px; margin: 0 auto 20px; text-align: left; }
+  .voter-id-card label { display: block; font-size: 16px; font-weight: 900; color: #065f46; margin-bottom: 6px; }
+  .voter-id-input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 18px;
+    font-weight: 800;
+    border: 3px solid #6ee7b7;
+    border-radius: 12px;
+    background: #f0fdf4;
+    color: #0f172a;
+    margin-bottom: 8px;
+    user-select: text;
+  }
+  .voter-id-input:focus { outline: none; border-color: #059669; background: white; }
+  .receipt-code-box {
+    background: #0f172a;
+    color: #4ade80;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    word-break: break-all;
+    margin: 14px 0;
+    border: 2px solid #334155;
+    user-select: text;
+    text-align: left;
+    max-height: 140px;
+    overflow-y: auto;
+  }
+  .btn-copy-receipt {
+    background: #059669;
+    border: 3px solid #047857;
+    color: white;
+    font-size: 19px;
+    font-weight: 900;
+    padding: 14px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+    transition: 0.15s;
+    display: inline-flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 8px;
   }
-  .guide-controls {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+  .btn-copy-receipt:hover { background: #047857; transform: translateY(-2px); }
+
+  .guide-header-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+  .guide-controls { display: flex; gap: 10px; flex-wrap: wrap; }
   .btn-guide-audio {
     background: #facc15;
     border: 3px solid #eab308;
@@ -676,23 +598,8 @@
     transition: 0.15s;
   }
   .btn-guide-audio:hover { background: #fde047; transform: translateY(-2px); }
-  .btn-guide-audio.playing {
-    background: #ef4444;
-    border-color: #dc2626;
-    color: white;
-  }
-
-  .btn-guide-mode {
-    background: #e2e8f0;
-    border: 2px solid #94a3b8;
-    color: #334155;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 10px 16px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.15s;
-  }
+  .btn-guide-audio.playing { background: #ef4444; border-color: #dc2626; color: white; }
+  .btn-guide-mode { background: #e2e8f0; border: 2px solid #94a3b8; color: #334155; font-size: 14px; font-weight: 800; padding: 10px 16px; border-radius: 12px; cursor: pointer; transition: 0.15s; }
   .btn-guide-mode:hover { background: #cbd5e1; }
 
   @keyframes popInCard {
@@ -701,97 +608,45 @@
     100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  @keyframes iconWiggleBounce {
-    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-    25% { transform: translateY(-8px) rotate(-10deg) scale(1.15); }
-    50% { transform: translateY(-4px) rotate(10deg) scale(1.15); }
-    75% { transform: translateY(-6px) rotate(-5deg) scale(1.1); }
-  }
-
   .flow-step-card {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     background: #ffffff;
     border: 3px solid #cbd5e1;
     border-radius: 16px;
-    padding: 18px 24px;
+    padding: 18px 20px;
     margin-bottom: 16px;
     transition: all 0.25s ease;
     position: relative;
+    flex-wrap: wrap;
   }
   .flow-step-card.hidden-step { display: none; }
-  .flow-step-card.visible-step {
-    display: flex;
-    animation: popInCard 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  .flow-step-card:hover {
-    border-color: #38bdf8;
-    background: #f0f9ff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.12);
-  }
-  .flow-step-card:hover .step-icon,
-  .flow-step-card.speaking-highlight .step-icon {
-    animation: iconWiggleBounce 0.7s ease-in-out infinite;
-  }
-
-  .flow-step-card.speaking-highlight {
-    border-color: #f59e0b !important;
-    background: #fef3c7 !important;
-    box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.35);
-    transform: scale(1.02);
-  }
-
-  .step-num {
-    background: #0284c7;
-    color: white;
-    font-size: 26px;
-    font-weight: 900;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+  .flow-step-card.visible-step { display: flex; animation: popInCard 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  .flow-step-card:hover { border-color: #38bdf8; background: #f0f9ff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(2, 132, 199, 0.12); }
+  .flow-step-card.speaking-highlight { border-color: #f59e0b !important; background: #fef3c7 !important; box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.35); transform: scale(1.01); }
+  .step-num { background: #0284c7; color: white; font-size: 24px; font-weight: 900; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .flow-step-thumb {
+    width: 150px;
+    height: 86px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #94a3b8;
+    background: #e0f2fe;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    font-size: 40px;
   }
-  .step-icon {
-    font-size: 46px;
-    flex-shrink: 0;
-    display: inline-block;
-    cursor: pointer;
-  }
-  .step-content { flex-grow: 1; }
-  .step-content h3 {
-    font-size: 20px;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 4px;
-  }
-  .step-content p {
-    font-size: 15px;
-    color: #475569;
-  }
-  .btn-step-mini-speak {
-    background: #fef08a;
-    border: 2px solid #eab308;
-    color: #713f12;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 8px 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: 0.1s;
-  }
+  .flow-step-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .step-content { flex: 1; min-width: 220px; }
+  .step-content h3 { font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+  .step-content p { font-size: 15px; color: #475569; }
+  .btn-step-mini-speak { background: #fef08a; border: 2px solid #eab308; color: #713f12; font-size: 14px; font-weight: 800; padding: 8px 12px; border-radius: 10px; cursor: pointer; flex-shrink: 0; transition: 0.1s; }
   .btn-step-mini-speak:hover { background: #fde047; }
 
-  .kamishibai-next-area {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+  .kamishibai-next-area { text-align: center; margin-top: 10px; margin-bottom: 10px; }
   .btn-kamishibai-next {
     background: #0284c7;
     border: 4px solid #0369a1;
@@ -804,17 +659,14 @@
     box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
     transition: 0.15s;
   }
-  .btn-kamishibai-next:hover {
-    background: #0369a1;
-    transform: translateY(-2px);
-  }
+  .btn-kamishibai-next:hover { background: #0369a1; transform: translateY(-2px); }
 
   .ballot-game-box {
     margin-top: 14px;
     background: #eff6ff;
     border: 3px dashed #3b82f6;
     border-radius: 16px;
-    padding: 16px;
+    padding: 18px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -825,7 +677,7 @@
     background: white;
     border: 3px solid #0284c7;
     border-radius: 12px;
-    padding: 12px 18px;
+    padding: 14px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -836,74 +688,31 @@
     z-index: 50;
     transition: box-shadow 0.2s;
   }
-  .draggable-paper:active {
-    cursor: grabbing;
-    box-shadow: 0 12px 24px rgba(2, 132, 199, 0.3);
-  }
-  .draggable-paper.inserted {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.2) translateY(30px);
-    transition: all 0.4s ease;
-  }
+  .draggable-paper:active { cursor: grabbing; box-shadow: 0 12px 24px rgba(2, 132, 199, 0.3); }
+  .draggable-paper.inserted { opacity: 0; pointer-events: none; transform: scale(0.2) translateY(30px); transition: all 0.4s ease; }
   .drop-target-box {
     background: #dbeafe;
     border: 4px solid #1d4ed8;
     border-radius: 16px;
-    padding: 14px 24px;
+    padding: 16px 26px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 170px;
+    min-width: 180px;
     transition: 0.2s;
   }
-  .drop-target-box.drag-over {
-    background: #fef08a;
-    border-color: #eab308;
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
-  }
+  .drop-target-box.drag-over { background: #fef08a; border-color: #eab308; transform: scale(1.08); box-shadow: 0 0 20px rgba(234, 179, 8, 0.5); }
   @keyframes boxCelebrate {
     0%, 100% { transform: scale(1); }
     30% { transform: scale(1.15) rotate(-4deg); }
     60% { transform: scale(1.15) rotate(4deg); }
   }
-  .drop-target-box.celebrate {
-    background: #dcfce7;
-    border-color: #16a34a;
-    animation: boxCelebrate 0.6s ease;
-  }
-  .game-result-msg {
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 900;
-    color: #15803d;
-    display: none;
-    margin-top: 4px;
-  }
-  .game-result-msg.show {
-    display: block;
-    animation: popInCard 0.4s ease;
-  }
-  .btn-reset-ballot {
-    background: #16a34a;
-    border: none;
-    color: white;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 6px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+  .drop-target-box.celebrate { background: #dcfce7; border-color: #16a34a; animation: boxCelebrate 0.6s ease; }
+  .game-result-msg { width: 100%; text-align: center; font-size: 18px; font-weight: 900; color: #15803d; display: none; margin-top: 4px; }
+  .game-result-msg.show { display: block; animation: popInCard 0.4s ease; }
+  .btn-reset-ballot { background: #16a34a; border: none; color: white; font-size: 14px; font-weight: 800; padding: 6px 14px; border-radius: 20px; cursor: pointer; margin-left: 10px; }
 
-  /* =========================================
-     4. ⚙️ せんせい用設定（Web編集機能）
-     ========================================= */
-  .admin-section {
-    user-select: text;
-  }
+  .admin-section { user-select: text; }
   .admin-toolbar {
     display: flex;
     justify-content: space-between;
@@ -916,256 +725,65 @@
     padding: 16px;
     margin-bottom: 20px;
   }
-  .admin-btn-group {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .btn-admin {
-    border: none;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 10px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.15s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .btn-admin-add {
-    background: #0284c7;
-    color: white;
-  }
+  .admin-btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-admin { border: none; font-size: 14px; font-weight: 800; padding: 10px 16px; border-radius: 10px; cursor: pointer; transition: 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-admin-add { background: #0284c7; color: white; }
   .btn-admin-add:hover { background: #0369a1; }
-  .btn-admin-export {
-    background: #16a34a;
-    color: white;
-    box-shadow: 0 3px 8px rgba(22, 163, 74, 0.3);
-  }
+  .btn-admin-export { background: #16a34a; color: white; box-shadow: 0 3px 8px rgba(22, 163, 74, 0.3); }
   .btn-admin-export:hover { background: #15803d; }
-  .btn-admin-import {
-    background: #f59e0b;
-    color: white;
-  }
+  .btn-admin-import { background: #f59e0b; color: white; }
   .btn-admin-import:hover { background: #d97706; }
-  .btn-admin-reset {
-    background: #e2e8f0;
-    color: #475569;
-  }
+  .btn-admin-reset { background: #e2e8f0; color: #475569; }
   .btn-admin-reset:hover { background: #cbd5e1; }
 
-  .admin-guide-note {
-    background: #f0fdf4;
-    border: 2px solid #86efac;
-    border-radius: 12px;
-    padding: 12px 16px;
-    margin-bottom: 20px;
-    font-size: 13px;
-    color: #166534;
-    line-height: 1.6;
-  }
+  .tally-box { background: #f0fdf4; border: 3px solid #10b981; border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+  .tally-textarea { width: 100%; padding: 12px; font-family: monospace; font-size: 13px; border: 2px solid #6ee7b7; border-radius: 10px; background: white; margin: 10px 0 12px; resize: vertical; }
+  .tally-result-area { margin-top: 16px; background: white; border: 2px solid #cbd5e1; border-radius: 14px; padding: 18px; display: none; }
+  .tally-result-area.show { display: block; }
+  .tally-role-block { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 2px dashed #e2e8f0; }
+  .tally-role-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .tally-bar-row { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+  .tally-cand-name { width: 180px; font-weight: 800; font-size: 14px; flex-shrink: 0; }
+  .tally-bar-bg { flex: 1; height: 22px; background: #f1f5f9; border-radius: 11px; overflow: hidden; }
+  .tally-bar-fill { height: 100%; background: #0284c7; border-radius: 11px; transition: width 0.4s ease; }
+  .tally-count-label { width: 65px; text-align: right; font-weight: 900; font-size: 15px; color: #0f172a; }
 
-  .role-count-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 12px;
-    margin-bottom: 24px;
-    padding: 16px;
-    background: #f8fafc;
-    border: 2px solid #cbd5e1;
-    border-radius: 14px;
-  }
-  .role-count-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: 1px solid #cbd5e1;
-    font-weight: 700;
-    font-size: 14px;
-  }
-  .role-count-item input {
-    width: 60px;
-    padding: 6px;
-    font-size: 16px;
-    font-weight: 800;
-    text-align: center;
-    border: 2px solid #94a3b8;
-    border-radius: 8px;
-  }
+  .scene-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 14px; }
+  .scene-photo-item { background: white; border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+  .scene-thumb-box { width: 100%; height: 110px; border-radius: 8px; background: #e0f2fe; border: 2px dashed #93c5fd; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 36px; }
+  .scene-thumb-box img { width: 100%; height: 100%; object-fit: cover; }
 
-  .admin-candidate-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .admin-cand-card {
-    background: #ffffff;
-    border: 2px solid #cbd5e1;
-    border-left: 8px solid #0284c7;
-    border-radius: 14px;
-    padding: 18px;
-    display: grid;
-    grid-template-columns: 145px 1fr auto;
-    gap: 18px;
-    align-items: start;
-  }
-  @media (max-width: 768px) {
-    .admin-cand-card {
-      grid-template-columns: 1fr;
-    }
-  }
-  .admin-photo-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .admin-photo-preview {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 3px solid #cbd5e1;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f8fafc;
-    font-size: 42px;
-  }
-  .admin-photo-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .file-upload-label {
-    background: #e0f2fe;
-    color: #0369a1;
-    border: 1px solid #7dd3fc;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 6px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-  }
+  .role-count-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 14px; }
+  .role-count-item { display: flex; align-items: center; justify-content: space-between; background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-weight: 700; font-size: 14px; }
+  .role-count-item input { width: 60px; padding: 6px; font-size: 16px; font-weight: 800; text-align: center; border: 2px solid #94a3b8; border-radius: 8px; }
+
+  .admin-candidate-list { display: flex; flex-direction: column; gap: 16px; }
+  .admin-cand-card { background: #ffffff; border: 2px solid #cbd5e1; border-left: 8px solid #0284c7; border-radius: 14px; padding: 18px; display: grid; grid-template-columns: 145px 1fr auto; gap: 18px; align-items: start; }
+  @media (max-width: 768px) { .admin-cand-card { grid-template-columns: 1fr; } }
+  .admin-photo-box { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .admin-photo-preview { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #cbd5e1; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f8fafc; font-size: 42px; }
+  .admin-photo-preview img { width: 100%; height: 100%; object-fit: cover; }
+  .file-upload-label { background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; font-size: 12px; font-weight: 800; padding: 6px 10px; border-radius: 8px; cursor: pointer; text-align: center; width: 100%; display: inline-block; }
   .file-upload-label:hover { background: #bae6fd; }
-  .audio-upload-label {
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fcd34d;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 6px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: center;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
+  .audio-upload-label { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; font-size: 12px; font-weight: 800; padding: 6px 10px; border-radius: 8px; cursor: pointer; text-align: center; display: inline-flex; align-items: center; gap: 4px; }
   .audio-upload-label:hover { background: #fde68a; }
-  .btn-clear-media {
-    background: none;
-    border: none;
-    color: #dc2626;
-    font-size: 11px;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+  .btn-clear-media { background: none; border: none; color: #dc2626; font-size: 11px; text-decoration: underline; cursor: pointer; }
 
-  .admin-audio-box {
-    background: #fffbeb;
-    border: 1px solid #fde68a;
-    border-radius: 10px;
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .admin-audio-controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .audio-status-badge {
-    font-size: 12px;
-    font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 6px;
-  }
-  .audio-status-badge.recorded {
-    background: #dcfce7;
-    color: #166534;
-  }
-  .audio-status-badge.tts {
-    background: #e2e8f0;
-    color: #475569;
-  }
-  .btn-test-voice {
-    background: #facc15;
-    border: 1px solid #eab308;
-    color: #713f12;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 5px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
+  .admin-audio-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .admin-audio-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .audio-status-badge { font-size: 12px; font-weight: 800; padding: 3px 8px; border-radius: 6px; }
+  .audio-status-badge.recorded { background: #dcfce7; color: #166534; }
+  .audio-status-badge.tts { background: #e2e8f0; color: #475569; }
+  .btn-test-voice { background: #facc15; border: 1px solid #eab308; color: #713f12; font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 6px; cursor: pointer; }
   .btn-test-voice:hover { background: #fde047; }
 
-  .admin-fields-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-  }
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .form-group.full-width {
-    grid-column: 1 / -1;
-  }
-  .form-group label {
-    font-size: 12px;
-    font-weight: 800;
-    color: #475569;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 8px 10px;
-    font-size: 14px;
-    font-family: inherit;
-    border: 2px solid #cbd5e1;
-    border-radius: 8px;
-    background: #f8fafc;
-    color: #0f172a;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: #0284c7;
-    background: white;
-  }
-  .btn-delete-cand {
-    background: #fee2e2;
-    color: #b91c1c;
-    border: 1px solid #fca5a5;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
+  .admin-fields-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 4px; }
+  .form-group.full-width { grid-column: 1 / -1; }
+  .form-group label { font-size: 12px; font-weight: 800; color: #475569; }
+  .form-group input, .form-group select, .form-group textarea { padding: 8px 10px; font-size: 14px; font-family: inherit; border: 2px solid #cbd5e1; border-radius: 8px; background: #f8fafc; color: #0f172a; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #0284c7; background: white; }
+  .btn-delete-cand { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; font-size: 13px; font-weight: 800; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
   .btn-delete-cand:hover { background: #fecaca; }
 
   .save-toast {
@@ -1184,12 +802,8 @@
     pointer-events: none;
     z-index: 9999;
   }
-  .save-toast.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .save-toast.show { opacity: 1; transform: translateY(0); }
 
-  /* 完了モーダル */
   .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -1201,36 +815,16 @@
     padding: 20px;
   }
   .modal-overlay.active { display: flex; }
-  .modal-box {
-    background: white;
-    border-radius: 24px;
-    border: 6px solid #10b981;
-    padding: 32px 24px;
-    text-align: center;
-    max-width: 480px;
-    width: 100%;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  }
-  .modal-box h2 {
-    font-size: 28px;
-    color: #065f46;
-    margin-bottom: 12px;
-  }
-  .modal-box p {
-    font-size: 18px;
-    font-weight: 700;
-    color: #334155;
-    margin-bottom: 24px;
-  }
+  .modal-box { background: white; border-radius: 24px; border: 6px solid #10b981; padding: 32px 24px; text-align: center; max-width: 480px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .modal-box h2 { font-size: 28px; color: #065f46; margin-bottom: 12px; }
+  .modal-box p { font-size: 18px; font-weight: 700; color: #334155; margin-bottom: 24px; }
 </style>
 </head>
 <body>
 
 <canvas id="confettiCanvas"></canvas>
 <div class="save-toast" id="saveToast">✅ へんこうを 自動ほぞん しました！</div>
-
-<!-- データファイル読み込み用の隠しインプット（JSONデータ専用） -->
-<input type="file" id="dataFileInput" accept=".json,application/json" style="display:none;" onchange="handleImportDataFile(this)">
+<input type="file" id="dataFileInput" style="display:none;" onchange="handleImportDataFile(this)">
 
 <header>
   <div class="title-group">
@@ -1240,29 +834,26 @@
     </h1>
     <div class="title-sub">じぶんの いけんを えらんで とうひょうしてみよう！</div>
   </div>
+  <!-- ご指定の並び順：候補者 → 投票の流れ → 投票練習 → オンライン投票（本番） → 編集・開票 -->
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="switchTab('candidates')">👤 こうほしゃ</button>
-    <button class="tab-btn" onclick="switchTab('vote')">🗳️ とうひょう れんしゅう</button>
     <button class="tab-btn" onclick="switchTab('guide')">📖 とうひょうの ながれ</button>
-    <button class="tab-btn admin-tab" onclick="switchTab('admin')">⚙️ へんしゅう</button>
+    <button class="tab-btn" onclick="switchTab('vote')">🗳️ とうひょう れんしゅう</button>
+    <button class="tab-btn real-vote-tab" onclick="switchTab('realVote')">🏠 オンラインとうひょう（本番）</button>
+    <button class="tab-btn admin-tab" onclick="switchTab('admin')">⚙️ へんしゅう・開票</button>
   </div>
 </header>
 
 <main>
-
-  <!-- タブ1: 候補者紹介 -->
+  <!-- 1. 候補者 -->
   <section id="candidatesView" class="view-section active">
     <div class="card">
-
-      <!-- 生徒用・データファイル読み込みバー -->
       <div class="data-loader-bar">
         <div class="data-status-info">
           <span id="dataStatusBadge" class="data-badge sample">サンプル表示中</span>
           <span id="dataStatusText">先生からくばられた「せんきょデータ」があるときは、右のボタンからよみこんでね！</span>
         </div>
-        <button class="btn-load-data" onclick="triggerImportDataFile()">
-          📂 せんきょデータを よみこむ
-        </button>
+        <button class="btn-load-data" onclick="triggerImportDataFile()">📂 せんきょデータを よみこむ</button>
       </div>
 
       <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 14px; color: #0f172a;">
@@ -1283,35 +874,7 @@
     </div>
   </section>
 
-  <!-- タブ2: 投票練習 -->
-  <section id="voteView" class="view-section">
-    <div class="card">
-      <div class="switch-guide-bar">
-        <div class="switch-guide-text">
-          💡 <strong>スイッチ操作モード:</strong> 「Space」キーか「Enter」キーを1回押すごとに、枠が順番に動いて選択できます。
-        </div>
-        <button class="btn-toggle-scan" id="btnToggleScan" onclick="toggleAutoScan()">
-          ▶️ 自動スキャンを開始 (2秒間隔)
-        </button>
-      </div>
-
-      <div class="vote-steps-bar" id="voteStepsBar"></div>
-
-      <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 14px; text-align: center;" id="voteStepTitle">
-        とうひょうしたい <ruby>人<rt>ひと</rt></ruby>を えらんでください
-      </h2>
-
-      <div class="vote-grid" id="voteSelectionArea"></div>
-
-      <div class="vote-action-area">
-        <button class="btn-next-step" id="btnNextStep" disabled onclick="nextVoteStep()">
-          つぎへすすむ
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- タブ3: 投票の流れガイド -->
+  <!-- 2. 投票の流れ -->
   <section id="guideView" class="view-section">
     <div class="card">
       <div class="guide-header-bar">
@@ -1320,54 +883,40 @@
           <ruby>投票<rt>とうひょう</rt></ruby>の ながれ（4つのステップ）
         </h2>
         <div class="guide-controls">
-          <button class="btn-guide-audio" id="btnAutoGuide" onclick="toggleAutoGuide()">
-            🔊 音声ガイドで順番に見る
-          </button>
-          <button class="btn-guide-mode" id="btnToggleAllSteps" onclick="toggleShowAllSteps()">
-            👀 4つすべて表示する
-          </button>
+          <button class="btn-guide-audio" id="btnAutoGuide" onclick="toggleAutoGuide()">🔊 音声ガイドで順番に見る</button>
+          <button class="btn-guide-mode" id="btnToggleAllSteps" onclick="toggleShowAllSteps()">👀 4つすべて表示する</button>
         </div>
       </div>
 
       <div class="flow-step-card visible-step" id="flow-step-1">
         <div class="step-num">1</div>
-        <div class="step-icon">🪪</div>
+        <div class="flow-step-thumb" id="guide-thumb-1"></div>
         <div class="step-content">
           <h3>① うけつけ を する</h3>
-          <p>「生徒手帳（または入場券）」を係の人に見せて、名前を確認してもらいます。</p>
+          <p>「生徒手帳（または入場券）」を係の人に見せて、名前を確認してもらい投票用紙を受け取ります。</p>
         </div>
         <button class="btn-step-mini-speak" onclick="speakSingleFlowStep(1)">🔊 きく</button>
       </div>
 
       <div class="flow-step-card hidden-step" id="flow-step-2">
         <div class="step-num">2</div>
-        <div class="step-icon">📄</div>
+        <div class="flow-step-thumb" id="guide-thumb-2"></div>
         <div class="step-content">
-          <h3>② とうひょうようし を もらう</h3>
-          <p>白い投票用紙を1枚受け取ります。大切に持って記入所へ進みます。</p>
+          <h3>② きさいだい で なまえを かく（えらぶ）</h3>
+          <p>ついたてのある記載台へ進み、自分が応援したい候補者の名前を書きます（または選びます）。</p>
         </div>
         <button class="btn-step-mini-speak" onclick="speakSingleFlowStep(2)">🔊 きく</button>
       </div>
 
-      <div class="flow-step-card hidden-step" id="flow-step-3">
-        <div class="step-num">3</div>
-        <div class="step-icon">✏️</div>
-        <div class="step-content">
-          <h3>③ なまえを かく（または えらぶ）</h3>
-          <p>自分が応援したい候補者の名前を書きます（スタンプや記号選択の場合もあります）。</p>
-        </div>
-        <button class="btn-step-mini-speak" onclick="speakSingleFlowStep(3)">🔊 きく</button>
-      </div>
-
-      <div class="flow-step-card hidden-step" id="flow-step-4" style="flex-direction: column; align-items: stretch;">
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <div class="step-num">4</div>
-          <div class="step-icon">🗳️</div>
+      <div class="flow-step-card hidden-step" id="flow-step-3" style="flex-direction: column; align-items: stretch;">
+        <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+          <div class="step-num">3</div>
+          <div class="flow-step-thumb" id="guide-thumb-3"></div>
           <div class="step-content">
-            <h3>④ とうひょうばこ に いれる</h3>
-            <p>投票箱の上の細い穴に、用紙を落として入れます。下の用紙を箱に入れて試してみよう！</p>
+            <h3>③ とうひょうばこ に いれる</h3>
+            <p>投票箱の上の細い穴に、用紙を入れて投函します。下の用紙を箱に入れて試してみよう！</p>
           </div>
-          <button class="btn-step-mini-speak" onclick="speakSingleFlowStep(4)">🔊 きく</button>
+          <button class="btn-step-mini-speak" onclick="speakSingleFlowStep(3)">🔊 きく</button>
         </div>
 
         <div class="ballot-game-box" id="ballotGameBox">
@@ -1376,15 +925,12 @@
             <span style="font-size: 14px; font-weight: 800; color: #0284c7;">とうひょうようし</span>
             <span style="font-size: 11px; color: #64748b;">（ひっぱる か タップ）</span>
           </div>
-
           <div style="font-size: 26px; font-weight: 900; color: #3b82f6;">➡️</div>
-
           <div class="drop-target-box" id="dropTargetBox">
             <span style="font-size: 46px;">🗳️</span>
             <span style="font-size: 15px; font-weight: 900; color: #1e3a8a;">とうひょうばこ</span>
             <span style="font-size: 12px; color: #3b82f6;">ここに入れる！</span>
           </div>
-
           <div class="game-result-msg" id="gameResultMsg">
             🎉 とうひょう せいこう！バッチリできたね！
             <button class="btn-reset-ballot" onclick="resetBallotGame()">もういちど 試す</button>
@@ -1392,20 +938,163 @@
         </div>
       </div>
 
+      <div class="flow-step-card hidden-step" id="flow-step-4">
+        <div class="step-num">4</div>
+        <div class="flow-step-thumb" id="guide-thumb-4"></div>
+        <div class="step-content">
+          <h3>④ でぐち から たいじょう する</h3>
+          <p>係の人にあいさつをして、出口から静かに会場の外へ出ます。これで投票完了です！</p>
+        </div>
+        <button class="btn-step-mini-speak" onclick="speakSingleFlowStep(4)">🔊 きく</button>
+      </div>
+
       <div class="kamishibai-next-area" id="kamishibaiNextArea">
-        <button class="btn-kamishibai-next" id="btnKamishibaiNext" onclick="revealNextKamishibaiStep()">
-          👇 つぎの ステップを みる（2 / 4）
-        </button>
+        <button class="btn-kamishibai-next" id="btnKamishibaiNext" onclick="revealNextKamishibaiStep()">👇 つぎの ステップを みる（2 / 4）</button>
       </div>
     </div>
   </section>
 
-  <!-- タブ4: せんせい用設定（Web編集画面） -->
+  <!-- 3. 投票練習 -->
+  <section id="voteView" class="view-section">
+    <div class="card">
+      <div class="sim-phase-stepper">
+        <div class="sim-phase-item active" id="sim-phase-tab-reception"><span class="sim-phase-icon">🪪</span><span>1. うけつけ</span></div>
+        <div class="sim-phase-item" id="sim-phase-tab-select"><span class="sim-phase-icon">✏️</span><span>2. えらぶ</span></div>
+        <div class="sim-phase-item" id="sim-phase-tab-ballotbox"><span class="sim-phase-icon">🗳️</span><span>3. とうひょうばこ</span></div>
+        <div class="sim-phase-item" id="sim-phase-tab-exit"><span class="sim-phase-icon">🚪</span><span>4. たいじょう</span></div>
+      </div>
+
+      <div id="simStageReception" class="sim-stage-box">
+        <div class="sim-scene-visual" id="visual-reception"></div>
+        <h2 class="sim-instruction-title">① うけつけ で 入場券 と 投票用紙 を こうかんしよう</h2>
+        <p class="sim-instruction-desc" id="receptionGuideText">かかりの ひとに「にゅうじょうけん」を わたして、しろい「とうひょうようし」を もらいます。</p>
+        <div class="reception-exchange-area">
+          <div class="ticket-card" id="receptionTicketCard">
+            <div style="font-size: 40px;" id="receptionTicketIcon">🎟️</div>
+            <div style="font-size: 16px; font-weight: 900; color: #713f12;" id="receptionTicketLabel">せんきょ にゅうじょうけん</div>
+          </div>
+        </div>
+        <button class="btn-next-step" id="btnReceptionAction" onclick="handleReceptionExchange()">🎟️ にゅうじょうけん を わたす</button>
+      </div>
+
+      <div id="simStageSelect" style="display: none;">
+        <div class="booth-scene-banner">
+          <div class="booth-scene-thumb" id="visual-booth"></div>
+          <div class="booth-scene-text">
+            <h3>② きさいだい で なまえを えらぼう</h3>
+            <p>ついたての ある 机（きさいだい）に すすんで、じぶんが おうえんしたい ひとを えらびます。</p>
+          </div>
+        </div>
+
+        <div class="switch-guide-bar">
+          <div class="switch-guide-text">💡 <strong>スイッチ操作モード:</strong> 「Space」キーか「Enter」キーを1回押すごとに、枠が順番に動いて選択できます。</div>
+          <button class="btn-toggle-scan" id="btnToggleScan" onclick="toggleAutoScan()">▶️ 自動スキャンを開始 (2秒間隔)</button>
+        </div>
+
+        <div class="vote-steps-bar" id="voteStepsBar"></div>
+        <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 14px; text-align: center;" id="voteStepTitle">とうひょうしたい <ruby>人<rt>ひと</rt></ruby>を えらんでください</h2>
+        <div class="vote-grid" id="voteSelectionArea"></div>
+        <div class="vote-action-area">
+          <button class="btn-next-step" id="btnNextStep" disabled onclick="nextVoteStep()">つぎへすすむ</button>
+        </div>
+      </div>
+
+      <div id="simStageBallotBox" class="sim-stage-box" style="display: none;">
+        <div class="sim-scene-visual" id="visual-ballotbox"></div>
+        <h2 class="sim-instruction-title">③ とうひょうばこ に ようしを いれよう</h2>
+        <p class="sim-instruction-desc">えらんだ ひとを かくにんして、したの「とうひょうようし」を <strong>とうひょうばこ</strong> に いれてください。</p>
+        <div class="selected-summary-box" id="simSelectedSummary"></div>
+
+        <div class="ballot-game-box" style="max-width: 600px; margin: 0 auto 20px;">
+          <div class="draggable-paper" id="simDraggablePaper" title="投票箱までひっぱってね！">
+            <span style="font-size: 40px;">📄</span>
+            <span style="font-size: 15px; font-weight: 800; color: #0284c7;">きにゅうした ようし</span>
+            <span style="font-size: 11px; color: #64748b;">（ひっぱる か タップ）</span>
+          </div>
+          <div style="font-size: 28px; font-weight: 900; color: #3b82f6;">➡️</div>
+          <div class="drop-target-box" id="simDropTargetBox">
+            <span style="font-size: 48px;">🗳️</span>
+            <span style="font-size: 16px; font-weight: 900; color: #1e3a8a;">とうひょうばこ</span>
+            <span style="font-size: 12px; color: #3b82f6;">ここに入れる！</span>
+          </div>
+          <div class="game-result-msg" id="simBoxResultMsg">✅ とうひょうばこ に いれました！つぎは たいじょう です。</div>
+        </div>
+
+        <button class="btn-next-step" id="btnGoToExit" disabled onclick="goToSimExitStage()">つぎへ（たいじょう する）</button>
+      </div>
+
+      <div id="simStageExit" class="sim-stage-box" style="display: none;">
+        <div class="sim-scene-visual" id="visual-exit"></div>
+        <h2 class="sim-instruction-title">④ たいじょう（でぐち から 出る）</h2>
+        <p class="sim-instruction-desc">とうひょうは おわりです。かかりの ひとに あいさつをして、しずかに でぐち から たいじょう しましょう。</p>
+        <button class="btn-next-step" style="background: #16a34a; border-color: #15803d;" onclick="completeFullVoteSimulation()">🚪 ありがとうございました（たいじょう する）</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. オンライン投票（本番） -->
+  <section id="realVoteView" class="view-section">
+    <div class="card">
+      <div class="real-vote-banner">
+        <h2>🏠 オンラインとうひょう（本番）</h2>
+        <p>
+          がっこうに 行けない日でも、ここから 本番の 生徒会選挙に とうひょうできます。<br>
+          さいごに 発行される「とうひょうコード」を、ロイロノートや Classroom などで 先生に 送ってください。
+        </p>
+      </div>
+
+      <div id="realVoteStepAuth" class="sim-stage-box">
+        <div class="voter-id-card">
+          <label for="realVoterIdInput">① あなたの「クラス・しゅっせきばんごう（または 名前）」を入れてね</label>
+          <input type="text" id="realVoterIdInput" class="voter-id-input" placeholder="例：2年1組 15番 やまだ たろう">
+          <div style="font-size: 13px; color: #047857; font-weight: 700;">
+            ※ 1人1回の とうひょうを かくにんするために 使います（だれに とうひょうしたかは 暗号化されて 秘密が 守られます）。
+          </div>
+        </div>
+        <button class="btn-next-step" style="background: #059669; border-color: #047857;" onclick="startRealVoteSelection()">✏️ とうひょう ようし に すすむ</button>
+      </div>
+
+      <div id="realVoteStepSelect" style="display: none;">
+        <div class="vote-steps-bar" id="realVoteStepsBar"></div>
+        <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 14px; text-align: center;" id="realVoteStepTitle"></h2>
+        <div class="vote-grid" id="realVoteSelectionArea"></div>
+        <div class="vote-action-area">
+          <button class="btn-next-step" id="btnRealNextStep" disabled onclick="nextRealVoteStep()" style="background: #059669; border-color: #047857;">つぎへすすむ</button>
+        </div>
+      </div>
+
+      <div id="realVoteStepConfirm" class="sim-stage-box" style="display: none;">
+        <h2 class="sim-instruction-title">📝 ほんばん とうひょう の 最終かくにん</h2>
+        <p class="sim-instruction-desc">以下の ないようで ほんばん とうひょうを けっていします。よろしいですか？</p>
+        <div class="selected-summary-box" id="realVoteConfirmSummary"></div>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn-next-step" style="background: #64748b; border-color: #475569; font-size: 18px; padding: 12px 26px;" onclick="initRealVote()">🔄 やりなおす</button>
+          <button class="btn-next-step" style="background: #059669; border-color: #047857;" onclick="generateRealVoteReceipt()">🔒 この内容で とうひょうする！</button>
+        </div>
+      </div>
+
+      <div id="realVoteStepReceipt" class="sim-stage-box" style="display: none; border-color: #10b981; background: #f0fdf4;">
+        <div style="font-size: 56px; margin-bottom: 6px;">🗳️✅</div>
+        <h2 class="sim-instruction-title" style="color: #065f46;">とうひょう コード が できました！</h2>
+        <p class="sim-instruction-desc" style="color: #047857;">
+          したの「📋 とうひょうコードを コピーする」を おして、ロイロノートや Classroom で 先生に 送ってください。<br>
+          <span style="font-size: 13px;">（※ コードは 暗号化されているため、だれに とうひょうしたか 画面には 見えません）</span>
+        </p>
+        <div class="receipt-code-box" id="realVoteReceiptOutput"></div>
+        <button class="btn-copy-receipt" id="btnCopyReceipt" onclick="copyRealVoteReceipt()">📋 とうひょうコードを コピーする</button>
+        <div id="copyCompleteNote" style="margin-top: 12px; font-size: 16px; font-weight: 900; color: #059669; display: none;">
+          ✅ コピーしました！そのまま 提出箱（ていしゅつばこ）や メッセージに 貼り付けて 先生に 送ってね！
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 編集・開票 -->
   <section id="adminView" class="view-section admin-section">
     <div class="card">
       <div class="admin-toolbar">
         <div>
-          <h2 style="font-size: 20px; font-weight: 800; color: #581c87;">⚙️ 立候補者・選挙データの編集（先生用）</h2>
+          <h2 style="font-size: 20px; font-weight: 800; color: #581c87;">⚙️ 立候補者・選挙データの編集 ＆ オンライン開票（先生用）</h2>
           <p style="font-size: 13px; color: #6b21a8;">入力した写真・音声・名前は、インターネット上には送信されず、この端末内だけに保存されます。</p>
         </div>
         <div class="admin-btn-group">
@@ -1416,24 +1105,33 @@
         </div>
       </div>
 
-      <div class="admin-guide-note">
-        <strong>🔒 個人情報を守る安全な使い方（iPad・Windows両対応）：</strong><br>
-        ① 下の欄に生徒の名前・クラス・写真・音声を入力します。<br>
-        ② 右上の<strong>「📤 生徒配布用データを保存」</strong>を押すと、<code>seitokai_senkyo_data.json</code> という1つのデータファイルが保存されます。<br>
-        ③ ロイロノートやClassroom等で、<strong>このURL</strong>と<strong>保存したデータファイル</strong>を生徒に配り、生徒画面の「📂 せんきょデータを よみこむ」から選んでもらってください（ネット上に生徒情報は一切残りません）。
+      <div class="tally-box">
+        <h3 style="font-size: 18px; font-weight: 900; color: #065f46; margin-bottom: 4px;">
+          📊 オンライン本番投票の「開票・集計」（不登校生徒の投票コード回収用）
+        </h3>
+        <p style="font-size: 13px; color: #047857;">
+          ロイロノートやClassroom等で生徒から届いた「投票コード（<code>VOTE-...</code>）」を下の枠にまとめて貼り付けて「開票・集計する」を押してください。<br>
+          ※ 同じ生徒（出席番号・名前）から複数回送られた場合は、<strong>最初の1票のみを有効とし、2回目以降は自動で重複除外</strong>します。
+        </p>
+        <textarea id="tallyInputTextarea" class="tally-textarea" rows="4" placeholder="ここに生徒から届いた VOTE-... で始まるコードを貼り付けてください（複数人分を改行やスペース区切りでまとめて貼り付けできます）"></textarea>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button class="btn-admin btn-admin-export" onclick="tallyOnlineVotes()">📊 開票・集計する</button>
+          <button class="btn-admin btn-admin-reset" onclick="clearTallyArea()">クリア</button>
+        </div>
+        <div id="tallyResultArea" class="tally-result-area"></div>
       </div>
 
-      <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 10px; color: #334155;">1. 役職ごとの選ぶ人数（当選人数）</h3>
+      <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 10px; color: #334155;">1. 投票練習の「場面イラスト・写真」（同じフォルダの step1.jpg〜step4.jpg を自動表示・差し替えも可能）</h3>
+      <div class="scene-photo-grid" id="adminScenePhotoArea"></div>
+
+      <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 10px; color: #334155;">2. 役職ごとの選ぶ人数（当選人数）</h3>
       <div class="role-count-grid" id="adminRoleCountArea"></div>
 
-      <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 10px; color: #334155;">2. 立候補者リスト（名前・クラス・役職・コメント・写真・音声）</h3>
+      <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 10px; color: #334155;">3. 立候補者リスト（名前・クラス・役職・コメント・写真・音声）</h3>
       <div class="admin-candidate-list" id="adminCandidateList"></div>
     </div>
   </section>
-
 </main>
-
-<!-- 🔍 候補者 拡大表示モーダル -->
 <div class="zoom-modal-overlay" id="candidateZoomModal" onclick="handleZoomBackdropClick(event)">
   <div class="zoom-modal-box" id="zoomModalBox">
     <button class="btn-close-zoom" onclick="closeCandidateZoom()">✖ とじる</button>
@@ -1446,20 +1144,16 @@
   </div>
 </div>
 
-<!-- 投票完了モーダル -->
 <div class="modal-overlay" id="doneModal">
   <div class="modal-box">
     <div style="font-size: 64px; margin-bottom: 10px;">🎉</div>
-    <h2>とうひょう かんりょう！</h2>
-    <p id="modalVotedCandidateText">すべての 役職の とうひょうが かんりょうしました。</p>
-    <button class="btn-next-step" style="font-size: 18px; padding: 12px 30px;" onclick="closeDoneModal()">
-      もういちど れんしゅうする
-    </button>
+    <h2>とうひょう れんしゅう かんりょう！</h2>
+    <p id="modalVotedCandidateText">うけつけ から たいじょう まで、すべて じょうずに できました！</p>
+    <button class="btn-next-step" style="font-size: 18px; padding: 12px 30px;" onclick="closeDoneModal()">もういちど れんしゅうする</button>
   </div>
 </div>
 
 <script id="initial-data-script">
-// 初期サンプルデータ（インターネット公開用・個人情報ゼロ）
 const DEFAULT_VOTE_STEPS = [
   { role: "会長候補", title: "【1/4】 会長を 1人 えらんでください", maxSelect: 1 },
   { role: "副会長候補", title: "【2/4】 副会長を 1人 えらんでください", maxSelect: 1 },
@@ -1468,146 +1162,26 @@ const DEFAULT_VOTE_STEPS = [
 ];
 
 const DEFAULT_CANDIDATES = [
-  {
-    id: "c1",
-    name: "やまだ たろう（サンプル）",
-    schoolClass: "3-1",
-    role: "会長候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "🦁",
-    color: "#ea580c",
-    badgeBg: "#ea580c",
-    manifesto: "「みんなが 笑顔で あいさつできる、あかるい学校にします！」",
-    speechText: "やまだ たろう です。みんなが えがおで あいさつできる、あかるい がっこうにします！"
-  },
-  {
-    id: "c2",
-    name: "あおき そうた（サンプル）",
-    schoolClass: "3-2",
-    role: "会長候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "🦅",
-    color: "#0284c7",
-    badgeBg: "#0284c7",
-    manifesto: "「学校行事を 生徒みんなの意見で もっと面白く盛り上げます！」",
-    speechText: "あおき そうた です。がっこうぎょうじを、みんなのいけんで もっとおもしろくします！"
-  },
-  {
-    id: "c3",
-    name: "さとう はなこ（サンプル）",
-    schoolClass: "2-1",
-    role: "副会長候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "🌻",
-    color: "#ca8a04",
-    badgeBg: "#ca8a04",
-    manifesto: "「給食のリクエスト放送をふやして、楽しいお昼の時間をつくります！」",
-    speechText: "さとう はなこ です。きゅうしょくの リクエストほうそうを ふやして、たのしい おひるにします！"
-  },
-  {
-    id: "c4",
-    name: "いとう ゆうま（サンプル）",
-    schoolClass: "2-2",
-    role: "副会長候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "🐬",
-    color: "#0d9488",
-    badgeBg: "#0d9488",
-    manifesto: "「困ったことをすぐに相談できる、みんなの目安箱を置きます！」",
-    speechText: "いとう ゆうま です。こまったことを なんでも そうだんできる、めやすばこをつくります！"
-  },
-  {
-    id: "c5",
-    name: "たなか けんた（サンプル）",
-    schoolClass: "2-3",
-    role: "書記候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "📖",
-    color: "#2563eb",
-    badgeBg: "#2563eb",
-    manifesto: "「生徒会新聞に 写真をたくさんのせて、見やすく伝えます！」",
-    speechText: "たなか けんた です。せいとかいしんぶんに しゃしんを たくさんのせて、わかりやすくします！"
-  },
-  {
-    id: "c6",
-    name: "わたなべ みさき（サンプル）",
-    schoolClass: "1-1",
-    role: "書記候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "🌸",
-    color: "#db2777",
-    badgeBg: "#db2777",
-    manifesto: "「校内の掲示板を イラスト付きでカラフルに分かりやすくします！」",
-    speechText: "わたなべ みさき です。けいじばんを イラストつきで カラフルに みやすくします！"
-  },
-  {
-    id: "c7",
-    name: "こばやし りくと（サンプル）",
-    schoolClass: "1-2",
-    role: "執行委員候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "⚽",
-    color: "#16a34a",
-    badgeBg: "#16a34a",
-    manifesto: "「昼休みに 体育館や運動場で 遊べるスポーツ用具を増やします！」",
-    speechText: "こばやし りくと です。ひるやすみに あそべる ボールや ようぐを ふやします！"
-  },
-  {
-    id: "c8",
-    name: "かとう ゆい（サンプル）",
-    schoolClass: "1-3",
-    role: "執行委員候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "🎨",
-    color: "#7c3aed",
-    badgeBg: "#7c3aed",
-    manifesto: "「季節のアート作品を 廊下に飾って、居心地のよい学校にします！」",
-    speechText: "かとう ゆい です。きせつの さくひんを かざって、すごしやすい がっこうにします！"
-  },
-  {
-    id: "c9",
-    name: "まつもと はるき（サンプル）",
-    schoolClass: "1-4",
-    role: "執行委員候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: "🌱",
-    color: "#65a30d",
-    badgeBg: "#65a30d",
-    manifesto: "「花壇に季節の花をたくさん植えて、きれいな中庭をつくります！」",
-    speechText: "まつもと はるき です。かだんに きれいな おはなを たくさん うえます！"
-  }
+  { id: "c1", name: "やまだ たろう（サンプル）", schoolClass: "3-1", role: "会長候補", photo: "", audioData: "", audioFileName: "", symbol: "🦁", color: "#ea580c", badgeBg: "#ea580c", manifesto: "「みんなが 笑顔で あいさつできる、あかるい学校にします！」", speechText: "やまだ たろう です。みんなが えがおで あいさつできる、あかるい がっこうにします！" },
+  { id: "c2", name: "あおき そうた（サンプル）", schoolClass: "3-2", role: "会長候補", photo: "", audioData: "", audioFileName: "", symbol: "🦅", color: "#0284c7", badgeBg: "#0284c7", manifesto: "「学校行事を 生徒みんなの意見で もっと面白く盛り上げます！」", speechText: "あおき そうた です。がっこうぎょうじを、みんなのいけんで もっとおもしろくします！" },
+  { id: "c3", name: "さとう はなこ（サンプル）", schoolClass: "2-1", role: "副会長候補", photo: "", audioData: "", audioFileName: "", symbol: "🌻", color: "#ca8a04", badgeBg: "#ca8a04", manifesto: "「給食のリクエスト放送をふやして、楽しいお昼の時間をつくります！」", speechText: "さとう はなこ です。きゅうしょくの リクエストほうそうを ふやして、たのしい おひるにします！" },
+  { id: "c4", name: "いとう ゆうま（サンプル）", schoolClass: "2-2", role: "副会長候補", photo: "", audioData: "", audioFileName: "", symbol: "🐬", color: "#0d9488", badgeBg: "#0d9488", manifesto: "「困ったことをすぐに相談できる、みんなの目安箱を置きます！」", speechText: "いとう ゆうま です。こまったことを なんでも そうだんできる、めやすばこをつくります！" },
+  { id: "c5", name: "たなか けんた（サンプル）", schoolClass: "2-3", role: "書記候補", photo: "", audioData: "", audioFileName: "", symbol: "📖", color: "#2563eb", badgeBg: "#2563eb", manifesto: "「生徒会新聞に 写真をたくさんのせて、見やすく伝えます！」", speechText: "たなか けんた です。せいとかいしんぶんに しゃしんを たくさんのせて、わかりやすくします！" },
+  { id: "c6", name: "わたなべ みさき（サンプル）", schoolClass: "1-1", role: "書記候補", photo: "", audioData: "", audioFileName: "", symbol: "🌸", color: "#db2777", badgeBg: "#db2777", manifesto: "「校内の掲示板を イラスト付きでカラフルに分かりやすくします！」", speechText: "わたなべ みさき です。けいじばんを イラストつきで カラフルに みやすくします！" },
+  { id: "c7", name: "こばやし りくと（サンプル）", schoolClass: "1-2", role: "執行委員候補", photo: "", audioData: "", audioFileName: "", symbol: "⚽", color: "#16a34a", badgeBg: "#16a34a", manifesto: "「昼休みに 体育館や運動場で 遊べるスポーツ用具を増やします！」", speechText: "こばやし りくと です。ひるやすみに あそべる ボールや ようぐを ふやします！" },
+  { id: "c8", name: "かとう ゆい（サンプル）", schoolClass: "1-3", role: "執行委員候補", photo: "", audioData: "", audioFileName: "", symbol: "🎨", color: "#7c3aed", badgeBg: "#7c3aed", manifesto: "「季節のアート作品を 廊下に飾って、居心地のよい学校にします！」", speechText: "かとう ゆい です。きせつの さくひんを かざって、すごしやすい がっこうにします！" },
+  { id: "c9", name: "まつもと はるき（サンプル）", schoolClass: "1-4", role: "執行委員候補", photo: "", audioData: "", audioFileName: "", symbol: "🌱", color: "#65a30d", badgeBg: "#65a30d", manifesto: "「花壇に季節の花をたくさん植えて、きれいな中庭をつくります！」", speechText: "まつもと はるき です。かだんに きれいな おはなを たくさん うえます！" }
 ];
 </script>
 
 <script>
-// =========================================================================
-// 💾 大容量ストレージ管理 (IndexedDB + localStorage フォールバック)
-// =========================================================================
 const folderName = window.location.pathname.replace(/[^a-zA-Z0-9]/g, '') || 'default';
 const DB_NAME = 'SeitokaiSenkyoDB_' + folderName;
 const DB_VERSION = 1;
 const STORE_NAME = 'electionStore';
-const LEGACY_KEY_CANDIDATES = 'seitokai_senkyo_candidates_v2_' + folderName;
-const LEGACY_KEY_STEPS = 'seitokai_senkyo_steps_v2_' + folderName;
-const LEGACY_KEY_CUSTOM_FLAG = 'seitokai_senkyo_is_custom_' + folderName;
+const LEGACY_KEY_CANDIDATES = 'seitokai_senkyo_candidates_v5_' + folderName;
+const LEGACY_KEY_STEPS = 'seitokai_senkyo_steps_v5_' + folderName;
+const LEGACY_KEY_CUSTOM_FLAG = 'seitokai_senkyo_is_custom_v5_' + folderName;
 
 const ROLE_COLOR_MAP = {
   "会長候補": "#ea580c",
@@ -1618,24 +1192,26 @@ const ROLE_COLOR_MAP = {
 
 let VOTE_STEPS = [];
 let CANDIDATES = [];
+let SCENE_PHOTOS = { reception: "", booth: "", ballotbox: "", exit: "" };
 let isCustomDataLoaded = false;
 let loadedFileName = "";
 let currentAudioPlayer = null;
 let currentPlayingCandId = null;
 let currentZoomCandidateId = null;
 
+function getSceneImageSrc(key) {
+  if (SCENE_PHOTOS[key]) return SCENE_PHOTOS[key];
+  const fileMap = { reception: 'step1.jpg', booth: 'step2.jpg', ballotbox: 'step3.jpg', exit: 'step4.jpg' };
+  return fileMap[key] || '';
+}
+
 function openElectionDB() {
   return new Promise((resolve, reject) => {
-    if (!window.indexedDB) {
-      reject(new Error('IndexedDB not supported'));
-      return;
-    }
+    if (!window.indexedDB) { reject(new Error('IndexedDB not supported')); return; }
     const req = indexedDB.open(DB_NAME, DB_VERSION);
     req.onupgradeneeded = (e) => {
       const db = e.target.result;
-      if (!db.objectStoreNames.contains(STORE_NAME)) {
-        db.createObjectStore(STORE_NAME);
-      }
+      if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
@@ -1679,11 +1255,13 @@ async function loadElectionData() {
   try {
     const savedSteps = await dbGet('steps');
     const savedCands = await dbGet('candidates');
+    const savedScenes = await dbGet('scenes');
     const savedCustomFlag = await dbGet('isCustom');
     const savedFileName = await dbGet('fileName');
     if (savedSteps && savedCands) {
       VOTE_STEPS = savedSteps;
       CANDIDATES = savedCands;
+      SCENE_PHOTOS = Object.assign({ reception: "", booth: "", ballotbox: "", exit: "" }, savedScenes || {});
       isCustomDataLoaded = Boolean(savedCustomFlag);
       loadedFileName = savedFileName || "";
       updateDataStatusBanner();
@@ -1697,24 +1275,25 @@ async function loadElectionData() {
     const legacyCustom = localStorage.getItem(LEGACY_KEY_CUSTOM_FLAG);
     VOTE_STEPS = legacySteps ? JSON.parse(legacySteps) : JSON.parse(JSON.stringify(DEFAULT_VOTE_STEPS));
     CANDIDATES = legacyCands ? JSON.parse(legacyCands) : JSON.parse(JSON.stringify(DEFAULT_CANDIDATES));
+    SCENE_PHOTOS = { reception: "", booth: "", ballotbox: "", exit: "" };
     isCustomDataLoaded = legacyCustom === 'true';
   } catch (e) {
     VOTE_STEPS = JSON.parse(JSON.stringify(DEFAULT_VOTE_STEPS));
     CANDIDATES = JSON.parse(JSON.stringify(DEFAULT_CANDIDATES));
+    SCENE_PHOTOS = { reception: "", booth: "", ballotbox: "", exit: "" };
     isCustomDataLoaded = false;
   }
   updateDataStatusBanner();
 }
 
 async function saveElectionData(markAsCustom = true) {
-  if (markAsCustom) {
-    isCustomDataLoaded = true;
-  }
+  if (markAsCustom) isCustomDataLoaded = true;
   updateDataStatusBanner();
 
   try {
     await dbSet('steps', VOTE_STEPS);
     await dbSet('candidates', CANDIDATES);
+    await dbSet('scenes', SCENE_PHOTOS);
     await dbSet('isCustom', isCustomDataLoaded);
     await dbSet('fileName', loadedFileName);
     showSaveToast("✅ へんこうを 自動ほぞん しました！");
@@ -1757,23 +1336,12 @@ function showSaveToast(message = "✅ へんこうを 自動ほぞん しまし�
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
 }
 
-// =========================================================================
-// 📤 / 📂 選挙データファイル（JSON）の書き出し・読み込み機能
-// =========================================================================
 function exportElectionDataFile() {
   stopAllVoices();
-  const payload = {
-    app: "seitokai_senkyo_web_support",
-    version: 1,
-    exportedAt: new Date().toISOString(),
-    steps: VOTE_STEPS,
-    candidates: CANDIDATES
-  };
-
+  const payload = { app: "seitokai_senkyo_web_support", version: 4, exportedAt: new Date().toISOString(), steps: VOTE_STEPS, candidates: CANDIDATES, scenes: SCENE_PHOTOS };
   const jsonStr = JSON.stringify(payload, null, 2);
   const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
   const url = URL.createObjectURL(blob);
-
   const a = document.createElement('a');
   a.href = url;
   a.download = 'seitokai_senkyo_data.json';
@@ -1781,7 +1349,6 @@ function exportElectionDataFile() {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-
   showSaveToast("📤 生徒配布用データファイルを保存しました！");
 }
 
@@ -1794,7 +1361,6 @@ function triggerImportDataFile() {
 function handleImportDataFile(input) {
   const file = input.files[0];
   if (!file) return;
-
   const reader = new FileReader();
   reader.onload = async function(e) {
     try {
@@ -1803,28 +1369,26 @@ function handleImportDataFile(input) {
         alert("このファイルは選挙データではありません。先生から配布された「seitokai_senkyo_data.json」を選んでください。");
         return;
       }
-
       stopAllVoices();
       closeCandidateZoom();
       VOTE_STEPS = parsed.steps;
       CANDIDATES = parsed.candidates;
+      SCENE_PHOTOS = Object.assign({ reception: "", booth: "", ballotbox: "", exit: "" }, parsed.scenes || {});
       loadedFileName = file.name;
       await saveElectionData(true);
-
       renderCandidates();
-      initVoteStep();
+      initFullVoteSimulation();
+      initRealVote();
+      renderGuideThumbnails();
       renderAdminPanel();
       showSaveToast(`🎉 「${file.name}」を よみこみました！`);
     } catch (err) {
-      alert("ファイルの読み込みに失敗しました。正しい選挙データファイル（.json）を選んでください。");
+      alert("ファイルの読み込みに失敗しました。正しい選挙データファイルを選んでください。");
     }
   };
   reader.readAsText(file, 'UTF-8');
 }
 
-// =========================================================================
-// 音声再生ユーティリティ（録音データ優先・未登録時はテキスト読み上げ）
-// =========================================================================
 function stopAllVoices() {
   if (currentAudioPlayer) {
     currentAudioPlayer.pause();
@@ -1840,37 +1404,28 @@ function stopAllVoices() {
   });
 }
 
+function speakSystemMessage(text) {
+  stopAllVoices();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'ja-JP';
+  utter.rate = 0.92;
+  window.speechSynthesis.speak(utter);
+}
+
 function playCandidateVoice(candidateId, btnElement = null, event = null) {
   if (event) event.stopPropagation();
-
   const c = CANDIDATES.find(item => item.id === candidateId);
   if (!c) return;
-
-  if (currentPlayingCandId === candidateId) {
-    stopAllVoices();
-    return;
-  }
-
+  if (currentPlayingCandId === candidateId) { stopAllVoices(); return; }
   stopAllVoices();
   currentPlayingCandId = candidateId;
-
-  if (btnElement) {
-    btnElement.classList.add('playing-voice');
-    btnElement.innerHTML = '⏹️ とめる';
-  }
-
+  if (btnElement) { btnElement.classList.add('playing-voice'); btnElement.innerHTML = '⏹️ とめる'; }
   if (c.audioData) {
     const audio = new Audio(c.audioData);
     currentAudioPlayer = audio;
     audio.onended = () => stopAllVoices();
-    audio.onerror = () => {
-      stopAllVoices();
-      speakTextFallback(c, btnElement);
-    };
-    audio.play().catch(() => {
-      stopAllVoices();
-      speakTextFallback(c, btnElement);
-    });
+    audio.onerror = () => { stopAllVoices(); speakTextFallback(c, btnElement); };
+    audio.play().catch(() => { stopAllVoices(); speakTextFallback(c, btnElement); });
   } else {
     speakTextFallback(c, btnElement);
   }
@@ -1878,15 +1433,8 @@ function playCandidateVoice(candidateId, btnElement = null, event = null) {
 
 function speakTextFallback(c, btnElement = null) {
   currentPlayingCandId = c.id;
-  if (btnElement) {
-    btnElement.classList.add('playing-voice');
-    btnElement.innerHTML = '⏹️ とめる';
-  }
-
-  const textToRead = (c.speechText && c.speechText.trim() !== "")
-    ? c.speechText
-    : `${c.name} です。${c.manifesto}`;
-
+  if (btnElement) { btnElement.classList.add('playing-voice'); btnElement.innerHTML = '⏹️ とめる'; }
+  const textToRead = (c.speechText && c.speechText.trim() !== "") ? c.speechText : `${c.name} です。${c.manifesto}`;
   const utter = new SpeechSynthesisUtterance(textToRead);
   utter.lang = 'ja-JP';
   utter.rate = 0.9;
@@ -1895,9 +1443,6 @@ function speakTextFallback(c, btnElement = null) {
   window.speechSynthesis.speak(utter);
 }
 
-// =========================================================================
-// 初期化・タブ切り替え
-// =========================================================================
 let currentFilter = 'all';
 let currentVoteStepIndex = 0;
 let userSelections = {};
@@ -1908,41 +1453,46 @@ let isAutoScanning = false;
 window.addEventListener('DOMContentLoaded', async () => {
   await loadElectionData();
   renderCandidates();
-  initVoteStep();
-  initBallotDragAndDrop();
+  initFullVoteSimulation();
+  initRealVote();
+  renderGuideThumbnails();
+  initGuideBallotDragAndDrop();
+  initSimBallotDragAndDrop();
   renderAdminPanel();
 });
 
+// タブ切り替え（ボタンの並び順：0=候補者, 1=投票の流れ, 2=投票練習, 3=オンライン投票, 4=編集・開票）
 function switchTab(tabKey) {
   document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-
   closeCandidateZoom();
   stopAutoScan();
   stopAutoGuide();
   stopAllVoices();
-
+  const tabBtns = document.querySelectorAll('.tab-btn');
   if (tabKey === 'candidates') {
     renderCandidates();
     document.getElementById('candidatesView').classList.add('active');
-    document.querySelectorAll('.tab-btn')[0].classList.add('active');
-  } else if (tabKey === 'vote') {
-    initVoteStep();
-    document.getElementById('voteView').classList.add('active');
-    document.querySelectorAll('.tab-btn')[1].classList.add('active');
+    tabBtns[0].classList.add('active');
   } else if (tabKey === 'guide') {
+    renderGuideThumbnails();
     document.getElementById('guideView').classList.add('active');
-    document.querySelectorAll('.tab-btn')[2].classList.add('active');
+    tabBtns[1].classList.add('active');
+  } else if (tabKey === 'vote') {
+    initFullVoteSimulation();
+    document.getElementById('voteView').classList.add('active');
+    tabBtns[2].classList.add('active');
+  } else if (tabKey === 'realVote') {
+    initRealVote();
+    document.getElementById('realVoteView').classList.add('active');
+    tabBtns[3].classList.add('active');
   } else if (tabKey === 'admin') {
     renderAdminPanel();
     document.getElementById('adminView').classList.add('active');
-    document.querySelectorAll('.tab-btn')[3].classList.add('active');
+    tabBtns[4].classList.add('active');
   }
 }
 
-// =========================================================================
-// 🔍 【候補者 拡大表示モーダル機能】
-// =========================================================================
 function getFilteredCandidates() {
   return CANDIDATES.filter(c => currentFilter === 'all' || c.role === currentFilter);
 }
@@ -1951,22 +1501,17 @@ function openCandidateZoom(candidateId) {
   const filtered = getFilteredCandidates();
   const idx = filtered.findIndex(c => c.id === candidateId);
   if (idx === -1) return;
-
   stopAllVoices();
   currentZoomCandidateId = candidateId;
   const c = filtered[idx];
-
   const modal = document.getElementById('candidateZoomModal');
   const box = document.getElementById('zoomModalBox');
   const content = document.getElementById('zoomModalContent');
   const counter = document.getElementById('zoomCounterText');
-
   box.style.borderColor = c.color || '#0284c7';
-
   const hasAudio = Boolean(c.audioData);
   const btnClass = hasAudio ? 'btn-speech zoom-speech-btn has-recorded-voice' : 'btn-speech zoom-speech-btn';
   const btnLabel = hasAudio ? '🎙️ こえを きく（本人音声）' : '🔊 こえを きく';
-
   content.innerHTML = `
     <div class="zoom-header-profile">
       ${createPhotoHtml(c, 'zoom-photo-frame')}
@@ -1976,16 +1521,9 @@ function openCandidateZoom(candidateId) {
       </div>
       <div class="zoom-name-text">${escapeHtml(c.name)}</div>
     </div>
-
-    <div class="zoom-manifesto-box">
-      ${escapeHtml(c.manifesto)}
-    </div>
-
-    <button class="${btnClass}" data-has-audio="${hasAudio}" onclick="playCandidateVoice('${c.id}', this, event)">
-      ${btnLabel}
-    </button>
+    <div class="zoom-manifesto-box">${escapeHtml(c.manifesto)}</div>
+    <button class="${btnClass}" data-has-audio="${hasAudio}" onclick="playCandidateVoice('${c.id}', this, event)">${btnLabel}</button>
   `;
-
   counter.textContent = `${idx + 1} / ${filtered.length} 人目`;
   modal.classList.add('active');
 }
@@ -1993,10 +1531,8 @@ function openCandidateZoom(candidateId) {
 function navigateZoomCandidate(direction) {
   const filtered = getFilteredCandidates();
   if (filtered.length === 0) return;
-
   const currentIndex = filtered.findIndex(c => c.id === currentZoomCandidateId);
   if (currentIndex === -1) return;
-
   const nextIndex = (currentIndex + direction + filtered.length) % filtered.length;
   openCandidateZoom(filtered[nextIndex].id);
 }
@@ -2011,15 +1547,311 @@ function closeCandidateZoom() {
 }
 
 function handleZoomBackdropClick(event) {
-  if (event.target.id === 'candidateZoomModal') {
-    closeCandidateZoom();
+  if (event.target.id === 'candidateZoomModal') closeCandidateZoom();
+}
+
+let realVoteStepIndex = 0;
+let realUserSelections = {};
+let realVoterId = "";
+let generatedReceiptCode = "";
+
+function initRealVote() {
+  realVoteStepIndex = 0;
+  realUserSelections = {};
+  generatedReceiptCode = "";
+  document.getElementById('realVoteStepAuth').style.display = 'block';
+  document.getElementById('realVoteStepSelect').style.display = 'none';
+  document.getElementById('realVoteStepConfirm').style.display = 'none';
+  document.getElementById('realVoteStepReceipt').style.display = 'none';
+  document.getElementById('copyCompleteNote').style.display = 'none';
+}
+
+function startRealVoteSelection() {
+  const input = document.getElementById('realVoterIdInput');
+  const val = input.value.trim();
+  if (!val) { alert("あなたの「クラス・しゅっせきばんごう（または 名前）」を入力してください。"); input.focus(); return; }
+  realVoterId = val;
+  realVoteStepIndex = 0;
+  realUserSelections = {};
+  while (realVoteStepIndex < VOTE_STEPS.length && CANDIDATES.filter(c => c.role === VOTE_STEPS[realVoteStepIndex].role).length === 0) {
+    realVoteStepIndex++;
+  }
+  document.getElementById('realVoteStepAuth').style.display = 'none';
+  document.getElementById('realVoteStepSelect').style.display = 'block';
+  renderRealVoteStep();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderRealVoteStep() {
+  if (realVoteStepIndex >= VOTE_STEPS.length) return;
+  const stepInfo = VOTE_STEPS[realVoteStepIndex];
+  const barContainer = document.getElementById('realVoteStepsBar');
+  barContainer.innerHTML = '';
+  VOTE_STEPS.forEach((step, idx) => {
+    if (!CANDIDATES.some(c => c.role === step.role)) return;
+    const indicator = document.createElement('div');
+    indicator.className = 'vote-step-indicator';
+    if (idx === realVoteStepIndex) indicator.classList.add('active');
+    else if (idx < realVoteStepIndex) indicator.classList.add('done');
+    indicator.textContent = step.role.replace('候補', '');
+    barContainer.appendChild(indicator);
+  });
+
+  const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
+  const effectiveMax = Math.min(stepInfo.maxSelect, currentCandidates.length);
+  const roleShort = stepInfo.role.replace('候補', '');
+  document.getElementById('realVoteStepTitle').textContent = `【ほんばん】${roleShort}を ${effectiveMax}人 えらんでください`;
+
+  const container = document.getElementById('realVoteSelectionArea');
+  container.innerHTML = '';
+  currentCandidates.forEach((c, idx) => {
+    const card = document.createElement('div');
+    card.className = 'vote-card';
+    card.id = `real-vote-card-${idx}`;
+    card.onclick = () => toggleRealVoteCandidate(c.id, idx);
+    const selectedList = realUserSelections[stepInfo.role] || [];
+    if (selectedList.includes(c.id)) card.classList.add('selected');
+    card.innerHTML = `
+      ${createPhotoHtml(c, 'vote-photo-frame')}
+      <div style="font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 2px;">${escapeHtml(c.schoolClass)}</div>
+      <div style="font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 2px;">${escapeHtml(c.name)}</div>
+      <div style="font-size: 13px; font-weight: 700; color: ${c.color};">${escapeHtml(c.role)}</div>
+    `;
+    container.appendChild(card);
+  });
+  updateRealNextButtonState();
+}
+
+function toggleRealVoteCandidate(id, idx) {
+  const stepInfo = VOTE_STEPS[realVoteStepIndex];
+  const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
+  const effectiveMax = Math.min(stepInfo.maxSelect, currentCandidates.length);
+  if (!realUserSelections[stepInfo.role]) realUserSelections[stepInfo.role] = [];
+  let selectedList = realUserSelections[stepInfo.role];
+  const cardElement = document.getElementById(`real-vote-card-${idx}`);
+
+  if (selectedList.includes(id)) {
+    realUserSelections[stepInfo.role] = selectedList.filter(item => item !== id);
+    cardElement.classList.remove('selected');
+  } else {
+    if (selectedList.length < effectiveMax) {
+      selectedList.push(id);
+      cardElement.classList.add('selected');
+    } else if (effectiveMax === 1) {
+      document.querySelectorAll('#realVoteSelectionArea .vote-card').forEach(c => c.classList.remove('selected'));
+      realUserSelections[stepInfo.role] = [id];
+      cardElement.classList.add('selected');
+    }
+  }
+  updateRealNextButtonState();
+  const c = CANDIDATES.find(item => item.id === id);
+  if (c) {
+    stopAllVoices();
+    const utter = new SpeechSynthesisUtterance(`${c.name} さん`);
+    utter.lang = 'ja-JP';
+    window.speechSynthesis.speak(utter);
   }
 }
 
-// =========================================================================
-// ⚙️ 【4. せんせい用設定（Web上で編集・追加・写真＆音声アップロード・データ保存）】
-// =========================================================================
+function updateRealNextButtonState() {
+  const stepInfo = VOTE_STEPS[realVoteStepIndex];
+  const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
+  const effectiveMax = Math.min(stepInfo.maxSelect, currentCandidates.length);
+  const selectedList = realUserSelections[stepInfo.role] || [];
+  const btn = document.getElementById('btnRealNextStep');
+  let hasMoreSteps = false;
+  for (let i = realVoteStepIndex + 1; i < VOTE_STEPS.length; i++) {
+    if (CANDIDATES.some(c => c.role === VOTE_STEPS[i].role)) { hasMoreSteps = true; break; }
+  }
+  if (selectedList.length === effectiveMax) {
+    btn.disabled = false;
+    btn.textContent = !hasMoreSteps ? "かくにん画面へすすむ" : "つぎの役職へすすむ";
+  } else {
+    btn.disabled = true;
+    btn.textContent = `あと ${effectiveMax - selectedList.length}人 えらんでください`;
+  }
+}
+
+function nextRealVoteStep() {
+  const stepInfo = VOTE_STEPS[realVoteStepIndex];
+  const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
+  const effectiveMax = Math.min(stepInfo.maxSelect, currentCandidates.length);
+  const selectedList = realUserSelections[stepInfo.role] || [];
+  if (selectedList.length !== effectiveMax) return;
+  realVoteStepIndex++;
+  while (realVoteStepIndex < VOTE_STEPS.length && CANDIDATES.filter(c => c.role === VOTE_STEPS[realVoteStepIndex].role).length === 0) {
+    realVoteStepIndex++;
+  }
+  if (realVoteStepIndex < VOTE_STEPS.length) {
+    renderRealVoteStep();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    document.getElementById('realVoteStepSelect').style.display = 'none';
+    document.getElementById('realVoteStepConfirm').style.display = 'block';
+    const summaryBox = document.getElementById('realVoteConfirmSummary');
+    let html = `<div class="selected-summary-item"><span style="color: #047857;">とうひょうする人</span><span style="color: #0f172a;">${escapeHtml(realVoterId)}</span></div>`;
+    VOTE_STEPS.forEach(step => {
+      const ids = realUserSelections[step.role] || [];
+      if (ids.length === 0) return;
+      const names = ids.map(id => { const found = CANDIDATES.find(c => c.id === id); return found ? found.name : ''; }).filter(Boolean).join('、');
+      html += `<div class="selected-summary-item"><span style="color: #475569;">${step.role.replace('候補', '')}</span><span style="color: #0f172a;">${escapeHtml(names)}</span></div>`;
+    });
+    summaryBox.innerHTML = html;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binString = "";
+  for (let i = 0; i < bytes.length; i++) binString += String.fromCharCode(bytes[i]);
+  return btoa(binString);
+}
+
+function base64ToUtf8(base64) {
+  const binString = atob(base64);
+  const bytes = new Uint8Array(binString.length);
+  for (let i = 0; i < binString.length; i++) bytes[i] = binString.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+function generateRealVoteReceipt() {
+  const ballotIds = [];
+  VOTE_STEPS.forEach(step => {
+    const ids = realUserSelections[step.role] || [];
+    ids.forEach(id => ballotIds.push({ r: step.role, i: id }));
+  });
+  const payload = { v: 1, voter: realVoterId.replace(/\s+/g, ' ').trim(), ts: Date.now(), votes: ballotIds };
+  const encoded = utf8ToBase64(JSON.stringify(payload));
+  generatedReceiptCode = `VOTE-${encoded}`;
+  document.getElementById('realVoteStepConfirm').style.display = 'none';
+  document.getElementById('realVoteStepReceipt').style.display = 'block';
+  document.getElementById('realVoteReceiptOutput').textContent = generatedReceiptCode;
+  launchConfetti();
+  playSuccessChime();
+  speakSystemMessage("とうひょう コードが できました。コピー ボタンを おして、先生に 送ってください。");
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+async function copyRealVoteReceipt() {
+  if (!generatedReceiptCode) return;
+  try {
+    await navigator.clipboard.writeText(generatedReceiptCode);
+    document.getElementById('copyCompleteNote').style.display = 'block';
+    showSaveToast("📋 とうひょうコードを コピーしました！");
+  } catch (e) {
+    const box = document.getElementById('realVoteReceiptOutput');
+    const range = document.createRange();
+    range.selectNodeContents(box);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand('copy');
+    document.getElementById('copyCompleteNote').style.display = 'block';
+    showSaveToast("📋 とうひょうコードを コピーしました！");
+  }
+}
+
+function tallyOnlineVotes() {
+  const rawText = document.getElementById('tallyInputTextarea').value;
+  const resultArea = document.getElementById('tallyResultArea');
+  const matches = rawText.match(/VOTE-[A-Za-z0-9+/=]+/g);
+  if (!matches || matches.length === 0) {
+    alert("有効な投票コード（VOTE-...）が見つかりませんでした。生徒から送られたコードを貼り付けてください。");
+    return;
+  }
+  const seenVoters = new Set();
+  const validVoterList = [];
+  const duplicateVoters = [];
+  let invalidCount = 0;
+  const voteCounts = {};
+  CANDIDATES.forEach(c => { voteCounts[c.id] = 0; });
+
+  matches.forEach(token => {
+    try {
+      const base64Part = token.replace(/^VOTE-/, '');
+      const decodedJson = base64ToUtf8(base64Part);
+      const data = JSON.parse(decodedJson);
+      if (!data || !data.voter || !Array.isArray(data.votes)) { invalidCount++; return; }
+      const normalizedVoter = String(data.voter).replace(/[\s ]+/g, '').toLowerCase();
+      if (seenVoters.has(normalizedVoter)) { duplicateVoters.push(data.voter); return; }
+      seenVoters.add(normalizedVoter);
+      validVoterList.push(data.voter);
+      data.votes.forEach(v => { if (voteCounts[v.i] !== undefined) voteCounts[v.i]++; });
+    } catch (e) { invalidCount++; }
+  });
+
+  let html = `
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #cbd5e1;">
+      <div style="font-size: 18px; font-weight: 900; color: #065f46;">✅ 開票結果（有効投票数：${validVoterList.length} 票）</div>
+      <div style="font-size: 13px; font-weight: 700; color: #475569;">重複除外: ${duplicateVoters.length}件 / 読取エラー: ${invalidCount}件</div>
+    </div>
+    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 10px 14px; margin-bottom: 18px; font-size: 13px;">
+      <strong>📋 投票済み生徒一覧（受付確認用・順不同）：</strong><br>
+      <span style="color: #334155;">${validVoterList.map(v => escapeHtml(v)).join(' ／ ') || 'なし'}</span>
+      ${duplicateVoters.length > 0 ? `<div style="color: #dc2626; margin-top: 4px;">⚠️ 重複のため除外された送信者: ${duplicateVoters.map(v => escapeHtml(v)).join('、')}</div>` : ''}
+    </div>
+  `;
+
+  VOTE_STEPS.forEach(step => {
+    const roleCands = CANDIDATES.filter(c => c.role === step.role);
+    if (roleCands.length === 0) return;
+    const totalValid = Math.max(1, validVoterList.length);
+    html += `<div class="tally-role-block"><div style="font-size: 16px; font-weight: 900; color: #0f172a;">【${step.role.replace('候補', '')}】</div>`;
+    roleCands.forEach(c => {
+      const count = voteCounts[c.id] || 0;
+      const pct = Math.round((count / totalValid) * 100);
+      html += `
+        <div class="tally-bar-row">
+          <div class="tally-cand-name">${escapeHtml(c.name)} <span style="font-size: 12px; color: #64748b;">(${escapeHtml(c.schoolClass)})</span></div>
+          <div class="tally-bar-bg"><div class="tally-bar-fill" style="width: ${pct}%; background: ${c.color || '#0284c7'};"></div></div>
+          <div class="tally-count-label">${count} 票</div>
+        </div>
+      `;
+    });
+    html += `</div>`;
+  });
+
+  resultArea.innerHTML = html;
+  resultArea.classList.add('show');
+}
+
+function clearTallyArea() {
+  document.getElementById('tallyInputTextarea').value = '';
+  const resultArea = document.getElementById('tallyResultArea');
+  resultArea.innerHTML = '';
+  resultArea.classList.remove('show');
+}
+
 function renderAdminPanel() {
+  const sceneArea = document.getElementById('adminScenePhotoArea');
+  const sceneMeta = [
+    { key: 'reception', title: '① うけつけ (step1)', icon: '🪪' },
+    { key: 'booth', title: '② きさいだい (step2)', icon: '✏️' },
+    { key: 'ballotbox', title: '③ とうひょうばこ (step3)', icon: '🗳️' },
+    { key: 'exit', title: '④ たいじょう (step4)', icon: '🚪' }
+  ];
+  sceneArea.innerHTML = '';
+  sceneMeta.forEach(item => {
+    const imgSrc = getSceneImageSrc(item.key);
+    const isCustom = Boolean(SCENE_PHOTOS[item.key]);
+    const div = document.createElement('div');
+    div.className = 'scene-photo-item';
+    div.innerHTML = `
+      <div style="font-size: 13px; font-weight: 800; color: #334155;">${item.title}</div>
+      <div class="scene-thumb-box">
+        <img src="${imgSrc}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none;">${item.icon}</span>
+      </div>
+      <label class="file-upload-label">
+        📷 画像・写真をえらぶ
+        <input type="file" accept="image/*" style="display:none;" onchange="handleScenePhotoUpload('${item.key}', this)">
+      </label>
+      ${isCustom ? `<button class="btn-clear-media" onclick="clearScenePhoto('${item.key}')">標準イラストに戻す</button>` : ''}
+    `;
+    sceneArea.appendChild(div);
+  });
+
   const roleCountArea = document.getElementById('adminRoleCountArea');
   roleCountArea.innerHTML = '';
   VOTE_STEPS.forEach((step, idx) => {
@@ -2027,28 +1859,21 @@ function renderAdminPanel() {
     div.className = 'role-count-item';
     div.innerHTML = `
       <span>${step.role.replace('候補', '')}（選ぶ人数）</span>
-      <div>
-        <input type="number" min="1" max="10" value="${step.maxSelect}"
-          onchange="updateRoleMaxSelect(${idx}, this.value)"> 人
-      </div>
+      <div><input type="number" min="1" max="10" value="${step.maxSelect}" onchange="updateRoleMaxSelect(${idx}, this.value)"> 人</div>
     `;
     roleCountArea.appendChild(div);
   });
 
   const listArea = document.getElementById('adminCandidateList');
   listArea.innerHTML = '';
-
   CANDIDATES.forEach((c, idx) => {
     const card = document.createElement('div');
     card.className = 'admin-cand-card';
     card.style.borderLeftColor = c.color || '#0284c7';
-
     const photoPreviewHtml = c.photo
       ? `<img src="${c.photo}" alt="${escapeHtml(c.name)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none;">${escapeHtml(c.symbol || '😊')}</span>`
       : `<span>${escapeHtml(c.symbol || '😊')}</span>`;
-
     const hasAudio = Boolean(c.audioData);
-
     card.innerHTML = `
       <div class="admin-photo-box">
         <div class="admin-photo-preview">${photoPreviewHtml}</div>
@@ -2058,18 +1883,9 @@ function renderAdminPanel() {
         </label>
         ${c.photo ? `<button class="btn-clear-media" onclick="clearCandidatePhoto(${idx})">写真を消す(絵文字にする)</button>` : ''}
       </div>
-
       <div class="admin-fields-grid">
-        <div class="form-group">
-          <label>生徒名（ひらがな・漢字）</label>
-          <input type="text" value="${escapeHtml(c.name)}" onchange="updateCandidateField(${idx}, 'name', this.value)">
-        </div>
-
-        <div class="form-group">
-          <label>クラス（例: 3-1）</label>
-          <input type="text" value="${escapeHtml(c.schoolClass)}" onchange="updateCandidateField(${idx}, 'schoolClass', this.value)">
-        </div>
-
+        <div class="form-group"><label>生徒名（ひらがな・漢字）</label><input type="text" value="${escapeHtml(c.name)}" onchange="updateCandidateField(${idx}, 'name', this.value)"></div>
+        <div class="form-group"><label>クラス（例: 3-1）</label><input type="text" value="${escapeHtml(c.schoolClass)}" onchange="updateCandidateField(${idx}, 'schoolClass', this.value)"></div>
         <div class="form-group">
           <label>立候補する役職</label>
           <select onchange="updateCandidateRole(${idx}, this.value)">
@@ -2079,17 +1895,8 @@ function renderAdminPanel() {
             <option value="執行委員候補" ${c.role === '執行委員候補' ? 'selected' : ''}>執行委員候補</option>
           </select>
         </div>
-
-        <div class="form-group">
-          <label>絵文字マーク（写真がない時用）</label>
-          <input type="text" value="${escapeHtml(c.symbol)}" onchange="updateCandidateField(${idx}, 'symbol', this.value)">
-        </div>
-
-        <div class="form-group full-width">
-          <label>コメント・公約（画面に表示される文章）</label>
-          <textarea rows="2" onchange="updateCandidateManifesto(${idx}, this.value)">${escapeHtml(c.manifesto)}</textarea>
-        </div>
-
+        <div class="form-group"><label>絵文字マーク（写真がない時用）</label><input type="text" value="${escapeHtml(c.symbol)}" onchange="updateCandidateField(${idx}, 'symbol', this.value)"></div>
+        <div class="form-group full-width"><label>コメント・公約（画面に表示される文章）</label><textarea rows="2" onchange="updateCandidateManifesto(${idx}, this.value)">${escapeHtml(c.manifesto)}</textarea></div>
         <div class="form-group full-width">
           <label>音声設定（本人の録音データを取り込むか、未登録時は下のテキストを自動読み上げします）</label>
           <div class="admin-audio-box">
@@ -2105,16 +1912,11 @@ function renderAdminPanel() {
                 : `<span class="audio-status-badge tts">🤖 未登録（テキスト自動読み上げ）</span>`
               }
             </div>
-            <input type="text" placeholder="自動読み上げ用テキスト（音声未登録時にここを読み上げます）"
-              value="${escapeHtml(c.speechText)}"
-              onchange="updateCandidateField(${idx}, 'speechText', this.value)">
+            <input type="text" placeholder="自動読み上げ用テキスト" value="${escapeHtml(c.speechText)}" onchange="updateCandidateField(${idx}, 'speechText', this.value)">
           </div>
         </div>
       </div>
-
-      <div>
-        <button class="btn-delete-cand" onclick="deleteCandidate(${idx})">🗑️ 削除</button>
-      </div>
+      <div><button class="btn-delete-cand" onclick="deleteCandidate(${idx})">🗑️ 削除</button></div>
     `;
     listArea.appendChild(card);
   });
@@ -2122,12 +1924,35 @@ function renderAdminPanel() {
 
 function escapeHtml(str) {
   if (!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
+function handleScenePhotoUpload(key, input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = async function() {
+      const canvas = document.createElement('canvas');
+      const maxSize = 640;
+      let width = img.width;
+      let height = img.height;
+      if (width > maxSize) { height *= maxSize / width; width = maxSize; }
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      SCENE_PHOTOS[key] = canvas.toDataURL('image/jpeg', 0.85);
+      await saveElectionData(true);
+      renderAdminPanel();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function clearScenePhoto(key) { SCENE_PHOTOS[key] = ""; await saveElectionData(true); renderAdminPanel(); }
 
 async function updateRoleMaxSelect(stepIdx, val) {
   const num = Math.max(1, Math.min(10, parseInt(val, 10) || 1));
@@ -2137,10 +1962,7 @@ async function updateRoleMaxSelect(stepIdx, val) {
   await saveElectionData(true);
 }
 
-async function updateCandidateField(idx, field, value) {
-  CANDIDATES[idx][field] = value;
-  await saveElectionData(true);
-}
+async function updateCandidateField(idx, field, value) { CANDIDATES[idx][field] = value; await saveElectionData(true); }
 
 async function updateCandidateRole(idx, newRole) {
   CANDIDATES[idx].role = newRole;
@@ -2153,17 +1975,11 @@ async function updateCandidateRole(idx, newRole) {
 
 async function updateCandidateManifesto(idx, value) {
   CANDIDATES[idx].manifesto = value;
-  if (!CANDIDATES[idx].speechText) {
-    CANDIDATES[idx].speechText = `${CANDIDATES[idx].name} です。${value}`;
-  }
+  if (!CANDIDATES[idx].speechText) CANDIDATES[idx].speechText = `${CANDIDATES[idx].name} です。${value}`;
   await saveElectionData(true);
 }
 
-async function clearCandidatePhoto(idx) {
-  CANDIDATES[idx].photo = "";
-  await saveElectionData(true);
-  renderAdminPanel();
-}
+async function clearCandidatePhoto(idx) { CANDIDATES[idx].photo = ""; await saveElectionData(true); renderAdminPanel(); }
 
 async function clearCandidateAudio(idx) {
   stopAllVoices();
@@ -2176,7 +1992,6 @@ async function clearCandidateAudio(idx) {
 function handlePhotoUpload(idx, input) {
   const file = input.files[0];
   if (!file) return;
-
   const reader = new FileReader();
   reader.onload = function(e) {
     const img = new Image();
@@ -2185,24 +2000,12 @@ function handlePhotoUpload(idx, input) {
       const maxSize = 360;
       let width = img.width;
       let height = img.height;
-
-      if (width > height) {
-        if (width > maxSize) {
-          height *= maxSize / width;
-          width = maxSize;
-        }
-      } else {
-        if (height > maxSize) {
-          width *= maxSize / height;
-          height = maxSize;
-        }
-      }
-
+      if (width > height) { if (width > maxSize) { height *= maxSize / width; width = maxSize; } }
+      else { if (height > maxSize) { width *= maxSize / height; height = maxSize; } }
       canvas.width = width;
       canvas.height = height;
       const ctx = canvas.getContext('2d');
       ctx.drawImage(img, 0, 0, width, height);
-
       CANDIDATES[idx].photo = canvas.toDataURL('image/jpeg', 0.85);
       await saveElectionData(true);
       renderAdminPanel();
@@ -2215,22 +2018,17 @@ function handlePhotoUpload(idx, input) {
 function handleAudioUpload(idx, input) {
   const file = input.files[0];
   if (!file) return;
-
   if (file.size > 15 * 1024 * 1024) {
-    alert("音声ファイルのサイズが大きすぎます（15MB以下にしてください）。短い音声（30秒〜1分程度）をおすすめします。");
+    alert("音声ファイルのサイズが大きすぎます（15MB以下にしてください）。");
     input.value = '';
     return;
   }
-
   const reader = new FileReader();
   reader.onload = async function(e) {
     CANDIDATES[idx].audioData = e.target.result;
     CANDIDATES[idx].audioFileName = file.name;
     await saveElectionData(true);
     renderAdminPanel();
-  };
-  reader.onerror = function() {
-    alert("音声ファイルの読み込みに失敗しました。別のファイルをお試しください。");
   };
   reader.readAsDataURL(file);
 }
@@ -2239,30 +2037,17 @@ async function addNewCandidate() {
   const newId = 'c_' + Date.now();
   const icons = ["🌟", "🍀", "🚀", "🌈", "🎵", "🐻", "🦊", "🐼"];
   const randomIcon = icons[CANDIDATES.length % icons.length];
-
   CANDIDATES.push({
-    id: newId,
-    name: "あたらしい こうほしゃ",
-    schoolClass: "1-1",
-    role: "執行委員候補",
-    photo: "",
-    audioData: "",
-    audioFileName: "",
-    symbol: randomIcon,
-    color: "#16a34a",
-    badgeBg: "#16a34a",
-    manifesto: "「みんなが楽しくすごせる学校にします！」",
-    speechText: "あたらしい こうほしゃ です。みんなが たのしく すごせる がっこうに します！"
+    id: newId, name: "あたらしい こうほしゃ", schoolClass: "1-1", role: "執行委員候補",
+    photo: "", audioData: "", audioFileName: "", symbol: randomIcon, color: "#16a34a", badgeBg: "#16a34a",
+    manifesto: "「みんなが楽しくすごせる学校にします！」", speechText: "あたらしい こうほしゃ です。みんなが たのしく すごせる がっこうに します！"
   });
   await saveElectionData(true);
   renderAdminPanel();
 }
 
 async function deleteCandidate(idx) {
-  if (CANDIDATES.length <= 1) {
-    alert("立候補者は最低1人必要です。");
-    return;
-  }
+  if (CANDIDATES.length <= 1) { alert("立候補者は最低1人必要です。"); return; }
   const targetName = CANDIDATES[idx].name;
   if (confirm(`「${targetName}」さんをリストから削除しますか？`)) {
     CANDIDATES.splice(idx, 1);
@@ -2278,19 +2063,19 @@ async function resetToDefaultData() {
     localStorage.removeItem(LEGACY_KEY_STEPS);
     localStorage.removeItem(LEGACY_KEY_CANDIDATES);
     localStorage.removeItem(LEGACY_KEY_CUSTOM_FLAG);
+    SCENE_PHOTOS = { reception: "", booth: "", ballotbox: "", exit: "" };
     isCustomDataLoaded = false;
     loadedFileName = "";
     await loadElectionData();
     renderAdminPanel();
     renderCandidates();
-    initVoteStep();
+    initFullVoteSimulation();
+    initRealVote();
+    renderGuideThumbnails();
     showSaveToast("🔄 サンプルデータに もどしました！");
   }
 }
 
-// =========================================================================
-// 1. 候補者表示・フィルター
-// =========================================================================
 function filterRole(role, btn) {
   currentFilter = role;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -2307,30 +2092,22 @@ function createPhotoHtml(c, frameClass) {
       </div>
     `;
   } else {
-    return `
-      <div class="${frameClass}" style="color: ${c.color}; border-color: ${c.color};">
-        <span class="fallback-symbol">${escapeHtml(c.symbol)}</span>
-      </div>
-    `;
+    return `<div class="${frameClass}" style="color: ${c.color}; border-color: ${c.color};"><span class="fallback-symbol">${escapeHtml(c.symbol)}</span></div>`;
   }
 }
 
 function renderCandidates() {
   const container = document.getElementById('candidateListArea');
   container.innerHTML = '';
-
   const filtered = getFilteredCandidates();
-
   filtered.forEach(c => {
     const card = document.createElement('div');
     card.className = 'candidate-card';
     card.style.borderColor = c.color;
     card.onclick = () => openCandidateZoom(c.id);
-
     const hasAudio = Boolean(c.audioData);
     const btnClass = hasAudio ? 'btn-speech has-recorded-voice' : 'btn-speech';
     const btnLabel = hasAudio ? '🎙️ こえを きく（本人音声）' : '🔊 こえを きく';
-
     card.innerHTML = `
       <span class="zoom-hint-badge">🔍 おおきく みる</span>
       <div class="candidate-left">
@@ -2341,25 +2118,95 @@ function renderCandidates() {
       </div>
       <div class="candidate-right">
         <div class="manifesto-box">${escapeHtml(c.manifesto)}</div>
-        <button class="${btnClass}" data-has-audio="${hasAudio}" onclick="playCandidateVoice('${c.id}', this, event)">
-          ${btnLabel}
-        </button>
+        <button class="${btnClass}" data-has-audio="${hasAudio}" onclick="playCandidateVoice('${c.id}', this, event)">${btnLabel}</button>
       </div>
     `;
     container.appendChild(card);
   });
 }
 
-// =========================================================================
-// 2. 投票練習
-// =========================================================================
+let simCurrentPhase = 'reception';
+let isTicketExchanged = false;
+
+function initFullVoteSimulation() {
+  simCurrentPhase = 'reception';
+  isTicketExchanged = false;
+  currentVoteStepIndex = 0;
+  userSelections = {};
+  renderSimSceneVisuals();
+  updateSimPhaseStepper('reception');
+  document.getElementById('simStageReception').style.display = 'block';
+  document.getElementById('simStageSelect').style.display = 'none';
+  document.getElementById('simStageBallotBox').style.display = 'none';
+  document.getElementById('simStageExit').style.display = 'none';
+  const ticketCard = document.getElementById('receptionTicketCard');
+  ticketCard.classList.remove('exchanged');
+  document.getElementById('receptionTicketIcon').textContent = '🎟️';
+  document.getElementById('receptionTicketLabel').textContent = 'せんきょ にゅうじょうけん';
+  document.getElementById('receptionGuideText').textContent = 'かかりの ひとに「にゅうじょうけん」を わたして、しろい「とうひょうようし」を もらいます。';
+  const btnRec = document.getElementById('btnReceptionAction');
+  btnRec.textContent = '🎟️ にゅうじょうけん を わたす';
+  btnRec.style.background = '#0284c7';
+  btnRec.style.borderColor = '#0369a1';
+}
+
+function renderSimSceneVisuals() {
+  document.getElementById('visual-reception').innerHTML = `
+    <img src="${getSceneImageSrc('reception')}" alt="うけつけのようす" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="sim-svg-scene" style="display:none;"><div style="font-size: 56px; margin-bottom: 6px;">🧑‍🏫 🪪 ➡️ 📄</div><div style="font-size: 16px; font-weight: 900; color: #0369a1;">【うけつけ】 にゅうじょうけん と とうひょうようし の こうかん</div></div>
+  `;
+  document.getElementById('visual-booth').innerHTML = `
+    <img src="${getSceneImageSrc('booth')}" alt="きさいだいのようす" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none;">✏️</span>
+  `;
+  document.getElementById('visual-ballotbox').innerHTML = `
+    <img src="${getSceneImageSrc('ballotbox')}" alt="とうひょうばこのようす" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="sim-svg-scene" style="display:none;"><div style="font-size: 56px; margin-bottom: 6px;">📄 ➡️ 🗳️</div><div style="font-size: 16px; font-weight: 900; color: #0369a1;">【とうひょうばこ】 ようしを おって はこに いれます</div></div>
+  `;
+  document.getElementById('visual-exit').innerHTML = `
+    <img src="${getSceneImageSrc('exit')}" alt="たいじょうのようす" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="sim-svg-scene" style="display:none;"><div style="font-size: 56px; margin-bottom: 6px;">🚶‍♂️ ➡️ 🚪✨</div><div style="font-size: 16px; font-weight: 900; color: #15803d;">【たいじょう】 とうひょう おわり！でぐち から 出ます</div></div>
+  `;
+}
+
+function updateSimPhaseStepper(phase) {
+  const order = ['reception', 'select', 'ballotbox', 'exit'];
+  const currentIdx = order.indexOf(phase);
+  order.forEach((key, idx) => {
+    const el = document.getElementById(`sim-phase-tab-${key}`);
+    el.classList.remove('active', 'done');
+    if (idx < currentIdx) el.classList.add('done');
+    else if (idx === currentIdx) el.classList.add('active');
+  });
+}
+
+function handleReceptionExchange() {
+  if (!isTicketExchanged) {
+    isTicketExchanged = true;
+    const ticketCard = document.getElementById('receptionTicketCard');
+    ticketCard.classList.add('exchanged');
+    document.getElementById('receptionTicketIcon').textContent = '📄';
+    document.getElementById('receptionTicketLabel').textContent = 'しろい とうひょうようし（うけとり完了！）';
+    document.getElementById('receptionGuideText').textContent = '「とうひょうようし」を うけとりました！つぎは きさいだい へ すすんで 人を えらびましょう。';
+    const btnRec = document.getElementById('btnReceptionAction');
+    btnRec.textContent = '✏️ きさいだい（えらぶ画面）へ すすむ';
+    btnRec.style.background = '#16a34a';
+    btnRec.style.borderColor = '#15803d';
+    playSuccessChime();
+    speakSystemMessage("にゅうじょうけんを わたして、とうひょうようしを もらいました！つぎは きさいだいへ すすみましょう。");
+  } else {
+    simCurrentPhase = 'select';
+    updateSimPhaseStepper('select');
+    document.getElementById('simStageReception').style.display = 'none';
+    document.getElementById('simStageSelect').style.display = 'block';
+    initVoteStep();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
 function initVoteStep() {
   currentVoteStepIndex = 0;
   userSelections = {};
-  while (
-    currentVoteStepIndex < VOTE_STEPS.length &&
-    CANDIDATES.filter(c => c.role === VOTE_STEPS[currentVoteStepIndex].role).length === 0
-  ) {
+  while (currentVoteStepIndex < VOTE_STEPS.length && CANDIDATES.filter(c => c.role === VOTE_STEPS[currentVoteStepIndex].role).length === 0) {
     currentVoteStepIndex++;
   }
   renderVoteStep();
@@ -2371,19 +2218,15 @@ function renderVoteStep() {
     document.getElementById('voteSelectionArea').innerHTML = '';
     return;
   }
-
   const stepInfo = VOTE_STEPS[currentVoteStepIndex];
   const barContainer = document.getElementById('voteStepsBar');
   barContainer.innerHTML = '';
   VOTE_STEPS.forEach((step, idx) => {
-    const hasCands = CANDIDATES.some(c => c.role === step.role);
-    if (!hasCands) return;
-
+    if (!CANDIDATES.some(c => c.role === step.role)) return;
     const indicator = document.createElement('div');
     indicator.className = 'vote-step-indicator';
     if (idx === currentVoteStepIndex) indicator.classList.add('active');
     else if (idx < currentVoteStepIndex) indicator.classList.add('done');
-
     indicator.textContent = step.role.replace('候補', '');
     barContainer.appendChild(indicator);
   });
@@ -2395,18 +2238,13 @@ function renderVoteStep() {
 
   const container = document.getElementById('voteSelectionArea');
   container.innerHTML = '';
-
   currentCandidates.forEach((c, idx) => {
     const card = document.createElement('div');
     card.className = 'vote-card';
     card.id = `vote-card-${idx}`;
     card.onclick = () => toggleVoteCandidate(c.id, idx);
-
     const selectedList = userSelections[stepInfo.role] || [];
-    if (selectedList.includes(c.id)) {
-      card.classList.add('selected');
-    }
-
+    if (selectedList.includes(c.id)) card.classList.add('selected');
     card.innerHTML = `
       ${createPhotoHtml(c, 'vote-photo-frame')}
       <div style="font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 2px;">${escapeHtml(c.schoolClass)}</div>
@@ -2415,7 +2253,6 @@ function renderVoteStep() {
     `;
     container.appendChild(card);
   });
-
   updateNextButtonState();
   scanIndex = -1;
   if (isAutoScanning) stopAutoScan();
@@ -2425,11 +2262,7 @@ function toggleVoteCandidate(id, idx) {
   const stepInfo = VOTE_STEPS[currentVoteStepIndex];
   const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
   const effectiveMax = Math.min(stepInfo.maxSelect, currentCandidates.length);
-
-  if (!userSelections[stepInfo.role]) {
-    userSelections[stepInfo.role] = [];
-  }
-
+  if (!userSelections[stepInfo.role]) userSelections[stepInfo.role] = [];
   let selectedList = userSelections[stepInfo.role];
   const cardElement = document.getElementById(`vote-card-${idx}`);
 
@@ -2441,14 +2274,12 @@ function toggleVoteCandidate(id, idx) {
       selectedList.push(id);
       cardElement.classList.add('selected');
     } else if (effectiveMax === 1) {
-      document.querySelectorAll('.vote-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('#voteSelectionArea .vote-card').forEach(c => c.classList.remove('selected'));
       userSelections[stepInfo.role] = [id];
       cardElement.classList.add('selected');
     }
   }
-
   updateNextButtonState();
-
   const c = CANDIDATES.find(item => item.id === id);
   if (c) {
     stopAllVoices();
@@ -2464,18 +2295,13 @@ function updateNextButtonState() {
   const effectiveMax = Math.min(stepInfo.maxSelect, currentCandidates.length);
   const selectedList = userSelections[stepInfo.role] || [];
   const btn = document.getElementById('btnNextStep');
-
   let hasMoreSteps = false;
   for (let i = currentVoteStepIndex + 1; i < VOTE_STEPS.length; i++) {
-    if (CANDIDATES.some(c => c.role === VOTE_STEPS[i].role)) {
-      hasMoreSteps = true;
-      break;
-    }
+    if (CANDIDATES.some(c => c.role === VOTE_STEPS[i].role)) { hasMoreSteps = true; break; }
   }
-
   if (selectedList.length === effectiveMax) {
     btn.disabled = false;
-    btn.textContent = !hasMoreSteps ? "投票完了！" : "つぎの役職へすすむ";
+    btn.textContent = !hasMoreSteps ? "えらびおわり！とうひょうばこ へ" : "つぎの役職へすすむ";
   } else {
     btn.disabled = true;
     btn.textContent = `あと ${effectiveMax - selectedList.length}人 えらんでください`;
@@ -2488,40 +2314,109 @@ function nextVoteStep() {
   const effectiveMax = Math.min(stepInfo.maxSelect, currentCandidates.length);
   const selectedList = userSelections[stepInfo.role] || [];
   if (selectedList.length !== effectiveMax) return;
-
   currentVoteStepIndex++;
-  while (
-    currentVoteStepIndex < VOTE_STEPS.length &&
-    CANDIDATES.filter(c => c.role === VOTE_STEPS[currentVoteStepIndex].role).length === 0
-  ) {
+  while (currentVoteStepIndex < VOTE_STEPS.length && CANDIDATES.filter(c => c.role === VOTE_STEPS[currentVoteStepIndex].role).length === 0) {
     currentVoteStepIndex++;
   }
-
   if (currentVoteStepIndex < VOTE_STEPS.length) {
     renderVoteStep();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
-    document.getElementById('doneModal').classList.add('active');
-    stopAllVoices();
-    const utter = new SpeechSynthesisUtterance("すべての役職の投票が完了しました。お疲れ様でした！");
-    utter.lang = 'ja-JP';
-    window.speechSynthesis.speak(utter);
+    goToSimBallotBoxStage();
   }
+}
+
+function goToSimBallotBoxStage() {
+  simCurrentPhase = 'ballotbox';
+  updateSimPhaseStepper('ballotbox');
+  document.getElementById('simStageSelect').style.display = 'none';
+  document.getElementById('simStageBallotBox').style.display = 'block';
+  const summaryBox = document.getElementById('simSelectedSummary');
+  let html = '<div style="font-size: 13px; color: #0369a1; font-weight: 800; margin-bottom: 6px;">📝 あなたが えらんだ ひと：</div>';
+  VOTE_STEPS.forEach(step => {
+    const ids = userSelections[step.role] || [];
+    if (ids.length === 0) return;
+    const names = ids.map(id => { const found = CANDIDATES.find(c => c.id === id); return found ? found.name : ''; }).filter(Boolean).join('、');
+    html += `<div class="selected-summary-item"><span style="color: #475569;">${step.role.replace('候補', '')}</span><span style="color: #0f172a;">${escapeHtml(names)}</span></div>`;
+  });
+  summaryBox.innerHTML = html;
+  const paper = document.getElementById('simDraggablePaper');
+  paper.classList.remove('inserted');
+  paper.style.transition = 'none';
+  paper.style.transform = 'translate(0px, 0px)';
+  document.getElementById('simBoxResultMsg').classList.remove('show');
+  document.getElementById('btnGoToExit').disabled = true;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  speakSystemMessage("えらびおわりました。つぎは、とうひょうばこに ようしを いれましょう。");
+}
+
+function initSimBallotDragAndDrop() {
+  const paper = document.getElementById('simDraggablePaper');
+  const box = document.getElementById('simDropTargetBox');
+  let isDragging = false, startX = 0, startY = 0, currentX = 0, currentY = 0;
+
+  paper.addEventListener('pointerdown', (e) => {
+    if (paper.classList.contains('inserted')) return;
+    isDragging = true; startX = e.clientX; startY = e.clientY; currentX = 0; currentY = 0;
+    paper.style.transition = 'none';
+    paper.setPointerCapture(e.pointerId);
+  });
+
+  paper.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX - startX; currentY = e.clientY - startY;
+    paper.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${currentX * 0.05}deg) scale(1.06)`;
+    const pRect = paper.getBoundingClientRect(), bRect = box.getBoundingClientRect();
+    box.classList.toggle('drag-over', !(pRect.right < bRect.left || pRect.left > bRect.right || pRect.bottom < bRect.top || pRect.top > bRect.bottom));
+  });
+
+  paper.addEventListener('pointerup', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    paper.releasePointerCapture(e.pointerId);
+    box.classList.remove('drag-over');
+    const movedDistance = Math.hypot(currentX, currentY);
+    const pRect = paper.getBoundingClientRect(), bRect = box.getBoundingClientRect();
+    const isOver = !(pRect.right < bRect.left || pRect.left > bRect.right || pRect.bottom < bRect.top || pRect.top > bRect.bottom);
+    if (isOver || movedDistance < 10) {
+      paper.style.transition = 'all 0.4s ease';
+      paper.classList.add('inserted');
+      box.classList.add('celebrate');
+      setTimeout(() => box.classList.remove('celebrate'), 700);
+      document.getElementById('simBoxResultMsg').classList.add('show');
+      document.getElementById('btnGoToExit').disabled = false;
+      playSuccessChime();
+      speakSystemMessage("とうひょうばこに いれました！つぎは たいじょう です。");
+    } else {
+      paper.style.transition = 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)';
+      paper.style.transform = 'translate(0px, 0px)';
+    }
+  });
+}
+
+function goToSimExitStage() {
+  simCurrentPhase = 'exit';
+  updateSimPhaseStepper('exit');
+  document.getElementById('simStageBallotBox').style.display = 'none';
+  document.getElementById('simStageExit').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  speakSystemMessage("とうひょうは おわりです。でぐち から たいじょう しましょう。");
+}
+
+function completeFullVoteSimulation() {
+  launchConfetti();
+  playSuccessChime();
+  document.getElementById('doneModal').classList.add('active');
+  speakSystemMessage("うけつけ から たいじょう まで、すべて かんりょう しました。おつかれさまでした！");
 }
 
 function closeDoneModal() {
   document.getElementById('doneModal').classList.remove('active');
-  initVoteStep();
+  initFullVoteSimulation();
   switchTab('candidates');
 }
 
-function toggleAutoScan() {
-  if (isAutoScanning) {
-    stopAutoScan();
-  } else {
-    startAutoScan();
-  }
-}
+function toggleAutoScan() { if (isAutoScanning) stopAutoScan(); else startAutoScan(); }
 
 function startAutoScan() {
   isAutoScanning = true;
@@ -2529,7 +2424,6 @@ function startAutoScan() {
   btn.textContent = "⏹️ スキャン停止";
   btn.classList.add('active');
   scanIndex = -1;
-
   stepScan();
   scanTimer = setInterval(stepScan, 2000);
 }
@@ -2538,63 +2432,43 @@ function stopAutoScan() {
   isAutoScanning = false;
   if (scanTimer) clearInterval(scanTimer);
   const btn = document.getElementById('btnToggleScan');
-  if (btn) {
-    btn.textContent = "▶️ 自動スキャンを開始 (2秒間隔)";
-    btn.classList.remove('active');
-  }
+  if (btn) { btn.textContent = "▶️ 自動スキャンを開始 (2秒間隔)"; btn.classList.remove('active'); }
   document.querySelectorAll('.vote-card').forEach(c => c.classList.remove('scanning-focus'));
 }
 
 function stepScan() {
-  const cards = document.querySelectorAll('.vote-card');
+  const cards = document.querySelectorAll('#voteSelectionArea .vote-card');
   if (cards.length === 0) return;
-
   cards.forEach(c => c.classList.remove('scanning-focus'));
-
   scanIndex = (scanIndex + 1) % cards.length;
   const currentCard = cards[scanIndex];
   currentCard.classList.add('scanning-focus');
   currentCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
   const stepInfo = VOTE_STEPS[currentVoteStepIndex];
   const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
   const c = currentCandidates[scanIndex];
-
-  if (c) {
-    stopAllVoices();
-    const utter = new SpeechSynthesisUtterance(c.name);
-    utter.lang = 'ja-JP';
-    window.speechSynthesis.speak(utter);
-  }
+  if (c) { stopAllVoices(); const utter = new SpeechSynthesisUtterance(c.name); utter.lang = 'ja-JP'; window.speechSynthesis.speak(utter); }
 }
 
 window.addEventListener('keydown', (e) => {
   const zoomModal = document.getElementById('candidateZoomModal');
   if (zoomModal && zoomModal.classList.contains('active')) {
-    if (e.code === 'Escape') {
-      closeCandidateZoom();
-    } else if (e.code === 'ArrowRight') {
-      navigateZoomCandidate(1);
-    } else if (e.code === 'ArrowLeft') {
-      navigateZoomCandidate(-1);
-    }
+    if (e.code === 'Escape') closeCandidateZoom();
+    else if (e.code === 'ArrowRight') navigateZoomCandidate(1);
+    else if (e.code === 'ArrowLeft') navigateZoomCandidate(-1);
     return;
   }
-
   const voteView = document.getElementById('voteView');
-  if (!voteView.classList.contains('active')) return;
-
+  if (!voteView.classList.contains('active') || simCurrentPhase !== 'select') return;
   if (e.code === 'Space' || e.code === 'Enter') {
     e.preventDefault();
-
     const stepInfo = VOTE_STEPS[currentVoteStepIndex];
     const currentCandidates = CANDIDATES.filter(c => c.role === stepInfo.role);
-
     if (isAutoScanning && scanIndex >= 0 && scanIndex < currentCandidates.length) {
       toggleVoteCandidate(currentCandidates[scanIndex].id, scanIndex);
       stopAutoScan();
     } else {
-      const cards = document.querySelectorAll('.vote-card');
+      const cards = document.querySelectorAll('#voteSelectionArea .vote-card');
       if (cards.length > 0) {
         scanIndex = (scanIndex + 1) % cards.length;
         toggleVoteCandidate(currentCandidates[scanIndex].id, scanIndex);
@@ -2603,20 +2477,28 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// =========================================================================
-// 3. とうひょうのながれ：紙芝居・音声ガイド・投票箱体験ギミック
-// =========================================================================
+function renderGuideThumbnails() {
+  const map = [
+    { id: 'guide-thumb-1', key: 'reception', icon: '🪪' },
+    { id: 'guide-thumb-2', key: 'booth', icon: '✏️' },
+    { id: 'guide-thumb-3', key: 'ballotbox', icon: '🗳️' },
+    { id: 'guide-thumb-4', key: 'exit', icon: '🚪' }
+  ];
+  map.forEach(item => {
+    const el = document.getElementById(item.id);
+    if (!el) return;
+    el.innerHTML = `<img src="${getSceneImageSrc(item.key)}" alt="ステップ画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none;">${item.icon}</span>`;
+  });
+}
+
 const FLOW_SPEECH_TEXTS = {
-  1: "ステップ1、うけつけをする。生徒手帳を係の人に見せて、名前を確認してもらいます。",
-  2: "ステップ2、とうひょうようしをもらう。白い投票用紙を1枚受け取ります。大切に持って記入所へ進みます。",
-  3: "ステップ3、なまえをかく、またはえらぶ。自分が応援したい候補者の名前を書きます。",
-  4: "ステップ4、とうひょうばこにいれる。投票箱の上の細い穴に、用紙を落として入れます。これで完了です！"
+  1: "ステップ1、うけつけをする。生徒手帳や入場券を係の人に見せて、名前を確認してもらい投票用紙を受け取ります。",
+  2: "ステップ2、きさいだいで なまえをかく、またはえらぶ。ついたてのある記載台へ進み、応援したい候補者を選びます。",
+  3: "ステップ3、とうひょうばこにいれる。投票箱の上の細い穴に、用紙を入れて投函します。",
+  4: "ステップ4、でぐちから たいじょうする。係の人にあいさつをして、出口から静かに外へ出ます。これで完了です！"
 };
 
-let revealedStepCount = 1;
-let isAllStepsShown = false;
-let isAutoGuidePlaying = false;
-let autoGuideFallbackTimer = null;
+let revealedStepCount = 1, isAllStepsShown = false, isAutoGuidePlaying = false, autoGuideFallbackTimer = null;
 
 function revealNextKamishibaiStep() {
   if (revealedStepCount < 4) {
@@ -2625,7 +2507,6 @@ function revealNextKamishibaiStep() {
     nextCard.classList.remove('hidden-step');
     nextCard.classList.add('visible-step');
     nextCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
     speakSingleFlowStep(revealedStepCount);
     updateKamishibaiButton();
   }
@@ -2635,40 +2516,24 @@ function updateKamishibaiButton() {
   const area = document.getElementById('kamishibaiNextArea');
   const btn = document.getElementById('btnKamishibaiNext');
   const toggleBtn = document.getElementById('btnToggleAllSteps');
-
   if (revealedStepCount >= 4 || isAllStepsShown) {
-    area.style.display = 'none';
-    isAllStepsShown = true;
-    toggleBtn.textContent = "📖 1枚ずつに戻す";
+    area.style.display = 'none'; isAllStepsShown = true; toggleBtn.textContent = "📖 1枚ずつに戻す";
   } else {
-    area.style.display = 'block';
-    btn.textContent = `👇 つぎの ステップを みる（${revealedStepCount + 1} / 4）`;
-    toggleBtn.textContent = "👀 4つすべて表示する";
+    area.style.display = 'block'; btn.textContent = `👇 つぎの ステップを みる（${revealedStepCount + 1} / 4）`; toggleBtn.textContent = "👀 4つすべて表示する";
   }
 }
 
 function toggleShowAllSteps() {
   stopAutoGuide();
   if (!isAllStepsShown) {
-    isAllStepsShown = true;
-    revealedStepCount = 4;
-    for (let i = 1; i <= 4; i++) {
-      const card = document.getElementById(`flow-step-${i}`);
-      card.classList.remove('hidden-step');
-      card.classList.add('visible-step');
-    }
+    isAllStepsShown = true; revealedStepCount = 4;
+    for (let i = 1; i <= 4; i++) { const c = document.getElementById(`flow-step-${i}`); c.classList.remove('hidden-step'); c.classList.add('visible-step'); }
   } else {
-    isAllStepsShown = false;
-    revealedStepCount = 1;
+    isAllStepsShown = false; revealedStepCount = 1;
     for (let i = 1; i <= 4; i++) {
-      const card = document.getElementById(`flow-step-${i}`);
-      if (i === 1) {
-        card.classList.remove('hidden-step');
-        card.classList.add('visible-step');
-      } else {
-        card.classList.remove('visible-step');
-        card.classList.add('hidden-step');
-      }
+      const c = document.getElementById(`flow-step-${i}`);
+      if (i === 1) { c.classList.remove('hidden-step'); c.classList.add('visible-step'); }
+      else { c.classList.remove('visible-step'); c.classList.add('hidden-step'); }
     }
   }
   updateKamishibaiButton();
@@ -2677,60 +2542,35 @@ function toggleShowAllSteps() {
 function speakSingleFlowStep(stepNum, onFinishedCallback = null) {
   stopAllVoices();
   if (autoGuideFallbackTimer) clearTimeout(autoGuideFallbackTimer);
-
   document.querySelectorAll('.flow-step-card').forEach(c => c.classList.remove('speaking-highlight'));
   const targetCard = document.getElementById(`flow-step-${stepNum}`);
-  if (targetCard) {
-    targetCard.classList.add('speaking-highlight');
-    targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
+  if (targetCard) { targetCard.classList.add('speaking-highlight'); targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
   const text = FLOW_SPEECH_TEXTS[stepNum];
   const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = 'ja-JP';
-  utter.rate = 0.92;
-
+  utter.lang = 'ja-JP'; utter.rate = 0.92;
   let finished = false;
   const finishHandler = () => {
-    if (finished) return;
-    finished = true;
+    if (finished) return; finished = true;
     if (autoGuideFallbackTimer) clearTimeout(autoGuideFallbackTimer);
     if (targetCard) targetCard.classList.remove('speaking-highlight');
     if (onFinishedCallback) onFinishedCallback();
   };
-
-  utter.onend = finishHandler;
-  utter.onerror = finishHandler;
+  utter.onend = finishHandler; utter.onerror = finishHandler;
   window.speechSynthesis.speak(utter);
-
   autoGuideFallbackTimer = setTimeout(finishHandler, Math.max(4500, text.length * 170));
 }
 
-function toggleAutoGuide() {
-  if (isAutoGuidePlaying) {
-    stopAutoGuide();
-  } else {
-    startAutoGuide();
-  }
-}
+function toggleAutoGuide() { if (isAutoGuidePlaying) stopAutoGuide(); else startAutoGuide(); }
 
 function startAutoGuide() {
   isAutoGuidePlaying = true;
   const btn = document.getElementById('btnAutoGuide');
-  btn.textContent = "⏹️ 音声ガイドをとめる";
-  btn.classList.add('playing');
-
-  isAllStepsShown = false;
-  revealedStepCount = 1;
+  btn.textContent = "⏹️ 音声ガイドをとめる"; btn.classList.add('playing');
+  isAllStepsShown = false; revealedStepCount = 1;
   for (let i = 1; i <= 4; i++) {
-    const card = document.getElementById(`flow-step-${i}`);
-    if (i === 1) {
-      card.classList.remove('hidden-step');
-      card.classList.add('visible-step');
-    } else {
-      card.classList.remove('visible-step');
-      card.classList.add('hidden-step');
-    }
+    const c = document.getElementById(`flow-step-${i}`);
+    if (i === 1) { c.classList.remove('hidden-step'); c.classList.add('visible-step'); }
+    else { c.classList.remove('visible-step'); c.classList.add('hidden-step'); }
   }
   updateKamishibaiButton();
   playGuideSequence(1);
@@ -2738,25 +2578,12 @@ function startAutoGuide() {
 
 function playGuideSequence(stepNum) {
   if (!isAutoGuidePlaying) return;
-
-  if (stepNum > 4) {
-    stopAutoGuide();
-    return;
-  }
-
+  if (stepNum > 4) { stopAutoGuide(); return; }
   revealedStepCount = Math.max(revealedStepCount, stepNum);
   const card = document.getElementById(`flow-step-${stepNum}`);
-  if (card.classList.contains('hidden-step')) {
-    card.classList.remove('hidden-step');
-    card.classList.add('visible-step');
-  }
+  if (card.classList.contains('hidden-step')) { card.classList.remove('hidden-step'); card.classList.add('visible-step'); }
   updateKamishibaiButton();
-
-  speakSingleFlowStep(stepNum, () => {
-    if (isAutoGuidePlaying) {
-      setTimeout(() => playGuideSequence(stepNum + 1), 400);
-    }
-  });
+  speakSingleFlowStep(stepNum, () => { if (isAutoGuidePlaying) setTimeout(() => playGuideSequence(stepNum + 1), 400); });
 }
 
 function stopAutoGuide() {
@@ -2765,77 +2592,36 @@ function stopAutoGuide() {
   stopAllVoices();
   document.querySelectorAll('.flow-step-card').forEach(c => c.classList.remove('speaking-highlight'));
   const btn = document.getElementById('btnAutoGuide');
-  if (btn) {
-    btn.textContent = "🔊 音声ガイドで順番に見る";
-    btn.classList.remove('playing');
-  }
+  if (btn) { btn.textContent = "🔊 音声ガイドで順番に見る"; btn.classList.remove('playing'); }
 }
 
-// =========================================================================
-// 投票用紙のドラッグ＆ドロップ体験
-// =========================================================================
-function initBallotDragAndDrop() {
+function initGuideBallotDragAndDrop() {
   const paper = document.getElementById('draggablePaper');
   const box = document.getElementById('dropTargetBox');
-  let isDragging = false;
-  let startX = 0, startY = 0;
-  let currentX = 0, currentY = 0;
+  let isDragging = false, startX = 0, startY = 0, currentX = 0, currentY = 0;
 
   paper.addEventListener('pointerdown', (e) => {
     if (paper.classList.contains('inserted')) return;
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    currentX = 0;
-    currentY = 0;
-    paper.style.transition = 'none';
-    paper.setPointerCapture(e.pointerId);
+    isDragging = true; startX = e.clientX; startY = e.clientY; currentX = 0; currentY = 0;
+    paper.style.transition = 'none'; paper.setPointerCapture(e.pointerId);
   });
 
   paper.addEventListener('pointermove', (e) => {
     if (!isDragging) return;
-    currentX = e.clientX - startX;
-    currentY = e.clientY - startY;
+    currentX = e.clientX - startX; currentY = e.clientY - startY;
     paper.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${currentX * 0.05}deg) scale(1.06)`;
-
-    const paperRect = paper.getBoundingClientRect();
-    const boxRect = box.getBoundingClientRect();
-    const isOver = !(
-      paperRect.right < boxRect.left ||
-      paperRect.left > boxRect.right ||
-      paperRect.bottom < boxRect.top ||
-      paperRect.top > boxRect.bottom
-    );
-
-    if (isOver) {
-      box.classList.add('drag-over');
-    } else {
-      box.classList.remove('drag-over');
-    }
+    const pRect = paper.getBoundingClientRect(), bRect = box.getBoundingClientRect();
+    box.classList.toggle('drag-over', !(pRect.right < bRect.left || pRect.left > bRect.right || pRect.bottom < bRect.top || pRect.top > bRect.bottom));
   });
 
   paper.addEventListener('pointerup', (e) => {
     if (!isDragging) return;
-    isDragging = false;
-    paper.releasePointerCapture(e.pointerId);
-    box.classList.remove('drag-over');
-
+    isDragging = false; paper.releasePointerCapture(e.pointerId); box.classList.remove('drag-over');
     const movedDistance = Math.hypot(currentX, currentY);
-    const paperRect = paper.getBoundingClientRect();
-    const boxRect = box.getBoundingClientRect();
-    const isOver = !(
-      paperRect.right < boxRect.left ||
-      paperRect.left > boxRect.right ||
-      paperRect.bottom < boxRect.top ||
-      paperRect.top > boxRect.bottom
-    );
-
-    if (isOver || movedDistance < 10) {
-      completeBallotDrop();
-    } else {
-      paper.style.transition = 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)';
-      paper.style.transform = 'translate(0px, 0px)';
-    }
+    const pRect = paper.getBoundingClientRect(), bRect = box.getBoundingClientRect();
+    const isOver = !(pRect.right < bRect.left || pRect.left > bRect.right || pRect.bottom < bRect.top || pRect.top > bRect.bottom);
+    if (isOver || movedDistance < 10) completeBallotDrop();
+    else { paper.style.transition = 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)'; paper.style.transform = 'translate(0px, 0px)'; }
   });
 }
 
@@ -2843,31 +2629,17 @@ function completeBallotDrop() {
   const paper = document.getElementById('draggablePaper');
   const box = document.getElementById('dropTargetBox');
   const msg = document.getElementById('gameResultMsg');
-
-  paper.style.transition = 'all 0.4s ease';
-  paper.classList.add('inserted');
-
-  box.classList.add('celebrate');
-  setTimeout(() => box.classList.remove('celebrate'), 700);
-
+  paper.style.transition = 'all 0.4s ease'; paper.classList.add('inserted');
+  box.classList.add('celebrate'); setTimeout(() => box.classList.remove('celebrate'), 700);
   msg.classList.add('show');
-
-  playSuccessChime();
-  launchConfetti();
-
-  stopAllVoices();
-  const utter = new SpeechSynthesisUtterance("とうひょうばこに いれました！バッチリできたね！");
-  utter.lang = 'ja-JP';
-  window.speechSynthesis.speak(utter);
+  playSuccessChime(); launchConfetti();
+  speakSystemMessage("とうひょうばこに いれました！バッチリできたね！");
 }
 
 function resetBallotGame() {
   const paper = document.getElementById('draggablePaper');
   const msg = document.getElementById('gameResultMsg');
-
-  paper.classList.remove('inserted');
-  paper.style.transition = 'none';
-  paper.style.transform = 'translate(0px, 0px)';
+  paper.classList.remove('inserted'); paper.style.transition = 'none'; paper.style.transform = 'translate(0px, 0px)';
   msg.classList.remove('show');
 }
 
@@ -2877,16 +2649,12 @@ function playSuccessChime() {
     const ctx = new AudioCtx();
     const notes = [523.25, 659.25, 783.99, 1046.50];
     notes.forEach((freq, idx) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.09);
+      const osc = ctx.createOscillator(), gain = ctx.createGain();
+      osc.type = 'triangle'; osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.09);
       gain.gain.setValueAtTime(0.18, ctx.currentTime + idx * 0.09);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.09 + 0.35);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(ctx.currentTime + idx * 0.09);
-      osc.stop(ctx.currentTime + idx * 0.09 + 0.35);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + idx * 0.09); osc.stop(ctx.currentTime + idx * 0.09 + 0.35);
     });
   } catch (e) {}
 }
@@ -2894,47 +2662,30 @@ function playSuccessChime() {
 function launchConfetti() {
   const canvas = document.getElementById('confettiCanvas');
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
   const colors = ['#facc15', '#38bdf8', '#f472b6', '#4ade80', '#fb923c', '#a78bfa'];
   const pieces = [];
   for (let i = 0; i < 90; i++) {
     pieces.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height - canvas.height,
-      w: Math.random() * 10 + 6,
-      h: Math.random() * 6 + 4,
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height - canvas.height,
+      w: Math.random() * 10 + 6, h: Math.random() * 6 + 4,
       color: colors[Math.floor(Math.random() * colors.length)],
-      vx: (Math.random() - 0.5) * 4,
-      vy: Math.random() * 4 + 3,
-      angle: Math.random() * Math.PI * 2,
-      vAngle: (Math.random() - 0.5) * 0.2
+      vx: (Math.random() - 0.5) * 4, vy: Math.random() * 4 + 3,
+      angle: Math.random() * Math.PI * 2, vAngle: (Math.random() - 0.5) * 0.2
     });
   }
-
   let frame = 0;
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     pieces.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      p.angle += p.vAngle;
-
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.angle);
-      ctx.fillStyle = p.color;
-      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      p.x += p.vx; p.y += p.vy; p.angle += p.vAngle;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.angle);
+      ctx.fillStyle = p.color; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
       ctx.restore();
     });
-
     frame++;
-    if (frame < 140) {
-      requestAnimationFrame(animate);
-    } else {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    if (frame < 140) requestAnimationFrame(animate);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
   animate();
 }
